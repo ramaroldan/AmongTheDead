@@ -7,7 +7,7 @@ public class MainCharacterMove : MonoBehaviour
 {
 
     [SerializeField] float speed; 
-    [SerializeField] float runSpeed; 
+    [SerializeField] float runSpeed; //
 
     Vector3 movement;
     Animator anim;
