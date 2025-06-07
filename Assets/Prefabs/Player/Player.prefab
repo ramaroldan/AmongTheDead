@@ -2672,9 +2672,10 @@ MonoBehaviour:
   currentHealth: 0
   healthImage: {fileID: 0}
   slider: {fileID: 0}
+  fillImage: {fileID: 0}
   damegeImage: {fileID: 0}
-  flashSpeed: 5
-  flashColour: {r: 0.9056604, g: 0.046991818, b: 0.046991818, a: 0}
+  flashSpeed: 1
+  flashColour: {r: 0.9056604, g: 0.046991818, b: 0.046991818, a: 0.39215687}
   gameManager: {fileID: 0}
   deathClip: {fileID: 8300000, guid: 1dc904b120aea44b58e588234674f5d7, type: 3}
 --- !u!82 &3952827070101514820

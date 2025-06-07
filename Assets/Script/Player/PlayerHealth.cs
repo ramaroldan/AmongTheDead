@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("UI Health")]
     [SerializeField] Slider slider; //barra de vida
+    [SerializeField] Image fillImage; //imagen de la barra
     [SerializeField] Image damegeImage; //imagen de daño
     [SerializeField] float flashSpeed = 5f; //velocidad de desaparocion de la imagen de daño
     [SerializeField] Color flashColour; //color de la imagen de daño
@@ -26,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     //Player Components
     AudioSource audioS; //audio
     Animator anim; //animaciones
-    MainCharacterMove playerMovement; //movimiento
+    MainCharacterMove mainCharacterMove; //movimiento
     PlayerShooting playerShooting; //disparo
 
     bool isDead; //muerto
@@ -39,12 +40,16 @@ public class PlayerHealth : MonoBehaviour
         slider.maxValue = maxHealth; //barra de vida maxima
         slider.value = maxHealth; //barra de vida actual
 
+
+        if (fillImage != null)
+            fillImage.color = Color.green;
+
         //otra forma de hacer vida con img (superior derecho)
         healthImage.fillAmount = 1f;
 
         //obtenemos los componentes
         anim = GetComponent<Animator>(); //animaciones
-        playerMovement = GetComponent<MainCharacterMove>(); //movimiento
+        mainCharacterMove = GetComponent<MainCharacterMove>(); //movimiento
         playerShooting = GetComponentInChildren<PlayerShooting>(); //disparo
         audioS = GetComponent<AudioSource>();
     }
@@ -71,6 +76,9 @@ public class PlayerHealth : MonoBehaviour
         damaged = true; //si me dañaron
         currentHealth -= amount; //resta el daño a la vida actual
         slider.value = currentHealth; //actualiza la barra de vida
+        
+        float healthPercent = (float)currentHealth / maxHealth; // Calcula el porcentaje de vida restante
+        fillImage.color = Color.Lerp(Color.red, Color.green, healthPercent); // Interpola entre verde (vida completa) y rojo (sin vida)
 
         //otra forma de hacer vida con img (superior derecho)
         healthImage.fillAmount = currentHealth / maxHealth;
@@ -88,13 +96,15 @@ public class PlayerHealth : MonoBehaviour
 
         isDead = true;
         //anim.SetTrigger("Death");
-        playerMovement.enabled = false; //desactivamos el movimiento
+
+        mainCharacterMove.enabled = false; //desactivamos el movimiento
         playerShooting.enabled = false; //desactivamos el disparo
+        //Destroy(gameObject);
         gameManager.GameOver();
     }
 
-    /*public void RestartLevel()
+    public void RestartLevel()
     {
-        Debug.Log("Game Over");
-    }*/
+        gameManager.GameOver(); //llamamos al GameOver del GameManager
+    }
 }
