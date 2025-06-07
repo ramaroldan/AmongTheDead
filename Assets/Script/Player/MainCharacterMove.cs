@@ -6,9 +6,9 @@ using UnityEngine;
 public class MainCharacterMove : MonoBehaviour
 {
 
-    [SerializeField] float speed; 
-    [SerializeField] float runSpeed; //
-
+    [SerializeField] float speed = 1f; //modificado en el editor para matchear con velocidad de animaciones
+    [SerializeField] float runSpeed;
+    
     Vector3 movement;
     Animator anim;
     Rigidbody playerRigibody;
@@ -19,8 +19,8 @@ public class MainCharacterMove : MonoBehaviour
     int floorMask;
     float camRayLength = 100f; //Distancia de la camara
 
-    float horiz = 0;
-    float vert = 0;
+    float horiz = 0f;
+    float vert = 0f;
 
     private void Awake()
     {
@@ -31,8 +31,8 @@ public class MainCharacterMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //horiz = Input.GetAxis("Horizontal");
         vert = Input.GetAxis("Vertical");
+        horiz = Input.GetAxis("Horizontal");
 
         float currentSpeed = Run(vert);
 
@@ -40,18 +40,38 @@ public class MainCharacterMove : MonoBehaviour
 
         Turning(); //Rotacion
 
-        Animating(horiz, vert); //Animaciones
+        Animating(vert, horiz); //Animaciones
+    }
+
+    private float Run(float vert)
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && vert > 0)
+        {
+            return runSpeed;
+        }
+        else
+        {
+            return speed;
+        }
     }
 
     private void Move(float horiz, float vert, float currentSpeed)
     {
         movement = new Vector3(horiz, 0, vert);
 
+        //movement = movement.normalized * speed * Time.deltaTime;
+
         if (vert > 0)
         {
+            // vector movement ahora multiplicado por la rotación
             movement = playerRotation * movement.normalized * currentSpeed * Time.deltaTime;
         }
         else if (vert < 0)
+        {
+            // si el movimiento es <0 implica que nos movemos hacia atras y lo haremos mas lento (speed/2)
+            movement = playerRotation * movement.normalized * currentSpeed / 2 * Time.deltaTime;
+        }
+        else // movimiento solamente en horizontal lo haremos mas lento (speed/2)
         {
             movement = playerRotation * movement.normalized * currentSpeed / 2 * Time.deltaTime;
         }
@@ -76,20 +96,12 @@ public class MainCharacterMove : MonoBehaviour
         }
     }
 
-    private float Run(float vert)
+    private void Animating(float v, float h)
     {
-        // Solo corre si Shift está presionado y se mueve hacia adelante
-        if (Input.GetKey(KeyCode.LeftShift) && vert > 0f)
-            return runSpeed;
-        else
-            return speed;
-    }
-
-    private void Animating(float horiz, float vert)
-    {
-        walking = vert > 0f;
-        walkingBackwards = vert < 0f;
-        anim.SetBool("IsWalking", walking);
-        anim.SetBool("IsWalkingBackwards", walkingBackwards);
+        //walkingBackwards = vert < 0f;
+        //anim.SetBool("IsWalking", walking);
+        //anim.SetBool("IsWalkingBackwards", walkingBackwards);
+        anim.SetFloat("VelZ", v);
+        anim.SetFloat("VelX", h);
     }
 }
