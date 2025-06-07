@@ -58,7 +58,7 @@ public class EnemyHealth : MonoBehaviour
 
         isDead = true;
         anim.SetTrigger("Death");
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2f);
         //GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().ScoreEnemy(scoreValue);
     }
 
