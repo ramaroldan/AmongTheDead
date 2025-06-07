@@ -239,13 +239,10 @@ GameObject:
   - component: {fileID: 6109280907798416627}
   - component: {fileID: 1263351303281189962}
   - component: {fileID: 7711420242843907716}
-  - component: {fileID: 2292787812045122437}
-  - component: {fileID: -7096139285393985278}
   - component: {fileID: 1550029612052429501}
   - component: {fileID: 776132835847694865}
   - component: {fileID: 4092379805689980214}
   - component: {fileID: 2144587504737590322}
-  - component: {fileID: 6122864709980157136}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -308,7 +305,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -338,48 +335,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2292787812045122437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315893942941432840}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637aea0c746da5a42a638ae918b7c1b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 7045266136920510903, guid: 932852c3d4169d440a8311d9797eac41,
-    type: 3}
-  chaseDistance: 10
---- !u!54 &-7096139285393985278
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315893942941432840}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1550029612052429501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +363,8 @@ MonoBehaviour:
   currentHealth: 0
   scoreValue: 10
   isDead: 0
+  slider: {fileID: 1230012548872215491}
+  fillImage: {fileID: 3475284163746703276}
   deathClip: {fileID: 8300000, guid: 9df77b70cadc8384ca073a95aebc666f, type: 3}
 --- !u!114 &4092379805689980214
 MonoBehaviour:
@@ -519,27 +476,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &6122864709980157136
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315893942941432840}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5, y: 1.97, z: 0.5}
-  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!1 &1354214702962957040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,6 +2536,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f78fac11fce5d84fb60ca9d2981c873, type: 3}
+--- !u!114 &1230012548872215491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7885386450775832280, guid: 1f78fac11fce5d84fb60ca9d2981c873,
+    type: 3}
+  m_PrefabInstance: {fileID: 8970999860545645851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3475284163746703276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5496032424868399799, guid: 1f78fac11fce5d84fb60ca9d2981c873,
+    type: 3}
+  m_PrefabInstance: {fileID: 8970999860545645851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4257696457618950922 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5145649035875968529, guid: 1f78fac11fce5d84fb60ca9d2981c873,
