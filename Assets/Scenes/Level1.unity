@@ -600,7 +600,7 @@ MonoBehaviour:
   - {fileID: 2315945574744369591, guid: 77f6a103abe35be4988d429034fe818f, type: 3}
   randomNaturePlacement: 1
   randomNaturePlacementThreshold: 0.3
-  animationTime: 0.01
+  animationTime: 0
 --- !u!4 &300608594
 Transform:
   m_ObjectHideFlags: 0
@@ -3097,7 +3097,7 @@ MonoBehaviour:
   road4Way: {fileID: 7186611593404455177, guid: 9123a496f00e31842b80b49e7b41ac8b,
     type: 3}
   roadEnd: {fileID: 867190217525862037, guid: 7be5369fc275971458de9b7f2505e630, type: 3}
-  animationTime: 0.01
+  animationTime: 0
 --- !u!4 &1788274553
 Transform:
   m_ObjectHideFlags: 0
@@ -3171,6 +3171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelGameOver: {fileID: 146923195}
+  transitionImage: {fileID: 0}
 --- !u!1 &1829349701
 GameObject:
   m_ObjectHideFlags: 0
