@@ -161,39 +161,6 @@ namespace SVS
 
         }
 
-        /*private void SpawnPlayerAtStart()
-        {
-            if (player == null)
-            {
-                Debug.LogWarning("No has asignado el player en el Inspector.");
-                return;
-            }
-
-            var roadPositions = roadHelper.GetRoadPositions();
-            if (roadPositions == null || roadPositions.Count == 0)
-            {
-                Debug.LogError("No se generaron posiciones de carretera antes de spawnear al jugador.");
-                return;
-            }
-
-            Vector3Int first = roadPositions[0];
-            Vector3 spawnPos = new Vector3(first.x, first.y +0.02f, first.z);
-
-            // —— Jugador ——
-            if (_playerInstance != null)
-            {
-                _playerInstance.transform.position = spawnPos;
-                return;
-            }
-
-            _playerInstance = Instantiate(player, spawnPos, Quaternion.identity);
-            _playerInstance.tag = "Player";
-
-            CameraControl camCtrl = Camera.main.GetComponent<CameraControl>();
-            if (camCtrl != null)
-                camCtrl.SetFollowTarget(_playerInstance.transform);
-        }*/
-
         private void SpawnFinishZoneAtEnd()
         {
 
@@ -275,22 +242,22 @@ namespace SVS
         //genera las posiciones de los enemies
         private List<Vector3> GetEnemySpawnPositions(List<Vector3Int> roadPositions, int count)
         {
-            var list = new List<Vector3>();
-            var rnd = new System.Random();
-            int attempts = 0;
+            var list = new List<Vector3>(); 
+            var rnd = new System.Random(); 
+            int attempts = 0; 
 
-            while (list.Count < count && attempts < count * 10)
+            while (list.Count < count && attempts < count * 10) 
             {
                 attempts++;
                 // Elige una carretera al azar
                 var roadPos = roadPositions[rnd.Next(roadPositions.Count)];
                 // Desplázate lateralmente 2 a 4 unidades
-                float offsetX = (float)(rnd.NextDouble() * 4 - 2);
+                float offsetX = (float)(rnd.NextDouble() * 4 - 2); 
                 float offsetZ = (float)(rnd.NextDouble() * 4 - 2);
-                Vector3 spawn = new Vector3(roadPos.x + offsetX, roadPos.y, roadPos.z + offsetZ);
+                Vector3 spawn = new Vector3(roadPos.x + offsetX, roadPos.y, roadPos.z + offsetZ); 
 
                 // Comprueba que no esté demasiado cerca de otro enemigo
-                if (!list.Exists(p => Vector3.Distance(p, spawn) < 2f))
+                if (!list.Exists(p => Vector3.Distance(p, spawn) < 2f)) // Distancia mínima de 2 unidades
                     list.Add(spawn);
             }
             return list;
