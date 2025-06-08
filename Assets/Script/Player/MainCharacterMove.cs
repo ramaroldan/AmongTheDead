@@ -8,13 +8,12 @@ public class MainCharacterMove : MonoBehaviour
 
     [SerializeField] float speed = 1f; //modificado en el editor para matchear con velocidad de animaciones
     [SerializeField] float runSpeed;
-    
     Vector3 movement;
     Animator anim;
     Rigidbody playerRigibody;
     Quaternion playerRotation;
-    bool walking = false;
-    bool walkingBackwards = false;
+    //bool walking = false;
+    //bool walkingBackwards = false;
 
     int floorMask;
     float camRayLength = 100f; //Distancia de la camara
@@ -31,8 +30,8 @@ public class MainCharacterMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        vert = Input.GetAxis("Vertical");
-        horiz = Input.GetAxis("Horizontal");
+        vert = Input.GetAxisRaw("Vertical");
+        horiz = Input.GetAxisRaw("Horizontal");
 
         float currentSpeed = Run(vert);
 
@@ -40,16 +39,15 @@ public class MainCharacterMove : MonoBehaviour
 
         Turning(); //Rotacion
 
-        Animating(vert, horiz); //Animaciones
+        Animating(vert, horiz, currentSpeed); //Animaciones
     }
 
     private float Run(float vert)
     {
-        if (Input.GetKey(KeyCode.LeftShift) && vert > 0)
+        if(Input.GetKey(KeyCode.LeftShift) && vert > 0 && horiz ==0)
         {
             return runSpeed;
-        }
-        else
+        } else
         {
             return speed;
         }
@@ -70,8 +68,7 @@ public class MainCharacterMove : MonoBehaviour
         {
             // si el movimiento es <0 implica que nos movemos hacia atras y lo haremos mas lento (speed/2)
             movement = playerRotation * movement.normalized * currentSpeed / 2 * Time.deltaTime;
-        }
-        else // movimiento solamente en horizontal lo haremos mas lento (speed/2)
+        } else // movimiento solamente en horizontal lo haremos mas lento (speed/2)
         {
             movement = playerRotation * movement.normalized * currentSpeed / 2 * Time.deltaTime;
         }
@@ -96,12 +93,14 @@ public class MainCharacterMove : MonoBehaviour
         }
     }
 
-    private void Animating(float v, float h)
+    private void Animating(float v, float h, float speed)
     {
         //walkingBackwards = vert < 0f;
         //anim.SetBool("IsWalking", walking);
         //anim.SetBool("IsWalkingBackwards", walkingBackwards);
         anim.SetFloat("VelZ", v);
         anim.SetFloat("VelX", h);
+        anim.SetFloat("RunSpeed", speed);
+        //Debug.Log(speed);
     }
 }
