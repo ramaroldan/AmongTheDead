@@ -270,6 +270,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &99372229 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1916370241144919376, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+    type: 3}
+  m_PrefabInstance: {fileID: 525031328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &105009170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1016,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500362688}
   m_CullTransparentMesh: 1
+--- !u!1001 &525031328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0069
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13810314
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.057150003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020727227927611999, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: m_Name
+      value: American AssaultRifle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1f0d5f838fc12547a3da5a0e4fe596e, type: 3}
+--- !u!1 &525031329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4020727227927611999, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+    type: 3}
+  m_PrefabInstance: {fileID: 525031328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &535779208
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3295,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829349701}
   m_CullTransparentMesh: 1
+--- !u!4 &1896492893 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9012085045100461928, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+    type: 3}
+  m_PrefabInstance: {fileID: 525031328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1938670982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,6 +4149,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: IKLeftHandPos
+      value: 
+      objectReference: {fileID: 99372229}
+    - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: IKRightHandPos
+      value: 
+      objectReference: {fileID: 1896492893}
+    - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: weaponList.Array.data[0]
+      value: 
+      objectReference: {fileID: 525031329}
     - target: {fileID: 7263606788758540147, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
       propertyPath: slider
@@ -4073,6 +4174,11 @@ PrefabInstance:
       propertyPath: fillImage
       value: 
       objectReference: {fileID: 65606054}
+    - target: {fileID: 7263606788758540147, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7263606788758540147, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
       propertyPath: damegeImage
@@ -4167,3 +4273,4 @@ SceneRoots:
   - {fileID: 1963802156}
   - {fileID: 1938670984}
   - {fileID: 3704350513588673018}
+  - {fileID: 525031328}
