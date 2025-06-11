@@ -399,7 +399,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1809905309}
+      - m_Target: {fileID: 146923199}
         m_TargetAssemblyTypeName: MenuSystem, Assembly-CSharp
         m_MethodName: BacktoMenu
         m_Mode: 1
@@ -481,6 +481,7 @@ GameObject:
   - component: {fileID: 146923196}
   - component: {fileID: 146923198}
   - component: {fileID: 146923197}
+  - component: {fileID: 146923199}
   m_Layer: 5
   m_Name: PanelGameOver
   m_TagString: Untagged
@@ -546,6 +547,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146923195}
   m_CullTransparentMesh: 1
+--- !u!114 &146923199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146923195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d97caa39d57dd4faa246a147b3645f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &300608592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,10 +3171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelGameOver: {fileID: 146923195}
-  transitionImage1: {fileID: 0}
-  transitionImage2: {fileID: 0}
-  transitionTime1: 3
-  transitionTime2: 3
 --- !u!1 &1829349701
 GameObject:
   m_ObjectHideFlags: 0
