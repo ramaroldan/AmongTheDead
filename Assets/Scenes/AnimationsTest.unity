@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &116122066 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4211049350121853104, guid: cd89a223e5b83d94fa54a76c14c9c24d,
+    type: 3}
+  m_PrefabInstance: {fileID: 601738234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +384,69 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1001 &601738234
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1364704855717136, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_Name
+      value: American Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
+--- !u!4 &650340592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7965368872179401528, guid: cd89a223e5b83d94fa54a76c14c9c24d,
+    type: 3}
+  m_PrefabInstance: {fileID: 601738234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &678058340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,6 +569,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1077305948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1364704855717136, guid: cd89a223e5b83d94fa54a76c14c9c24d,
+    type: 3}
+  m_PrefabInstance: {fileID: 601738234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1145567170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2821144283762212245, guid: b0d20c7f91335cb42998d74bcbeda882,
@@ -517,10 +592,6 @@ PrefabInstance:
     - target: {fileID: 1173155406573634, guid: b0d20c7f91335cb42998d74bcbeda882, type: 3}
       propertyPath: m_Name
       value: American AssaultRifle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1173155406573634, guid: b0d20c7f91335cb42998d74bcbeda882, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4787629316168686, guid: b0d20c7f91335cb42998d74bcbeda882, type: 3}
       propertyPath: m_LocalPosition.x
@@ -577,17 +648,37 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
-      propertyPath: IKLeftHandPos
+      propertyPath: rifleIKLeftHandPos
       value: 
       objectReference: {fileID: 2084853014}
     - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
-      propertyPath: IKRightHandPos
+      propertyPath: pistolIKLeftHandPos
+      value: 
+      objectReference: {fileID: 650340592}
+    - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: rifleIKRightHandPos
       value: 
       objectReference: {fileID: 1145567170}
     - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
+      propertyPath: pistolIKRightHandPos
+      value: 
+      objectReference: {fileID: 116122066}
+    - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
       propertyPath: weaponList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1077305948}
+    - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: weaponList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1077305948}
+    - target: {fileID: 829782812570620775, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: weaponList.Array.data[2]
       value: 
       objectReference: {fileID: 2143301274}
     - target: {fileID: 7389712602595613324, guid: 932852c3d4169d440a8311d9797eac41,
@@ -672,3 +763,4 @@ SceneRoots:
   - {fileID: 678058340}
   - {fileID: 1740029669}
   - {fileID: 1535194189}
+  - {fileID: 601738234}
