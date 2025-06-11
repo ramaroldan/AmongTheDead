@@ -25,8 +25,8 @@ Transform:
   m_GameObject: {fileID: 218880470689209356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0052, y: 1.005, z: 0.487}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3856822622749048145}
@@ -2135,16 +2135,22 @@ MonoBehaviour:
   anim: {fileID: 0}
   weaponList:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentWeaponPos: {fileID: 0}
   knifePos: {fileID: 0}
-  pistolPos: {fileID: 0}
+  pistolPos: {fileID: 6578768946451192461}
   riflePos: {fileID: 8256783436138269796}
   rightHandIK: {fileID: 8580638263311211535}
   rightHandTarget: {fileID: 4413002960066996995}
   leftHandIK: {fileID: 2016665020968055118}
   leftHandTarget: {fileID: 7413089910015067052}
-  IKRightHandPos: {fileID: 0}
-  IKLeftHandPos: {fileID: 0}
+  knifeIKRightHandPos: {fileID: 0}
+  knifeIKLeftHandPos: {fileID: 0}
+  pistolIKRightHandPos: {fileID: 0}
+  pistolIKLeftHandPos: {fileID: 0}
+  rifleIKRightHandPos: {fileID: 0}
+  rifleIKLeftHandPos: {fileID: 0}
 --- !u!114 &7263606788758540147
 MonoBehaviour:
   m_ObjectHideFlags: 0
