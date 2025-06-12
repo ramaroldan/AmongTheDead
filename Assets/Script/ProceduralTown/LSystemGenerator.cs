@@ -18,7 +18,7 @@ namespace SVS
 
         private void Start()
         {
-            Debug.Log(GenerateSentence());    
+           // Debug.Log(GenerateSentence());    
         }
         public string GenerateSentence(string word = null)
         {

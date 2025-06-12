@@ -7,6 +7,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] float timeBetweenAttacks; //tiempo entre ataques
     [SerializeField] int attackDamage; //daño del ataque
 
+    Animator anim;
     GameObject player; //objeto player
     PlayerHealth playerHealth; //vida del player
     EnemyHealth enemyHealth; //vida del enemigo
@@ -18,6 +19,7 @@ public class EnemyAttack : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -47,7 +49,17 @@ public class EnemyAttack : MonoBehaviour
 
     void Attack()
     {
+        Animating();
         timer = 0;
         playerHealth.TakeDamage(attackDamage); //le hacemos daño al player
+        
+    }
+
+    void Animating()
+    {
+        if (anim != null)
+        {
+            anim.SetTrigger("Attack");
+        }
     }
 }
