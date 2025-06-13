@@ -987,9 +987,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image1: {fileID: 298538886}
-  image2: {fileID: 631344573}
-  timeImage1: 5
-  timeImage2: 0
+  image2: {fileID: 298538886}
+  timeImage1: 2
+  timeImage2: 2
   fadeDuration: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
