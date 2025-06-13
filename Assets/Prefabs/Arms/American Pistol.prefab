@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4870260538741856}
   - component: {fileID: 33072213906910412}
   - component: {fileID: 23890683788183862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4591830996123414}
   - component: {fileID: 33031449727025018}
   - component: {fileID: 23472428211857738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,9 +177,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4392049516594244}
   - component: {fileID: 5682552822669726703}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: American Pistol
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 4985786954362150}
   - component: {fileID: 33211937889226352}
   - component: {fileID: 23883405213278662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 4202199556882494}
   - component: {fileID: 33547223289356648}
   - component: {fileID: 23093832043261372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 4182422258546594}
   - component: {fileID: 33462521713176480}
   - component: {fileID: 23911354393915768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Filler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 7636221329935738494}
   - component: {fileID: 6552268889430761768}
   - component: {fileID: 5256058528269217108}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PointBulletPistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4211049350121853104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightHandPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7965368872179401528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftHandPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

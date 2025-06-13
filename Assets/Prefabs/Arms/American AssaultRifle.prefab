@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2623840861016067610}
   - component: {fileID: 1250264758320227049}
   - component: {fileID: 59863802316883857}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5420237010087954134}
   - component: {fileID: 4526268473827793344}
   - component: {fileID: 1395958323570840953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,9 +176,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3885484310585688831}
   - component: {fileID: 2646144500039604125}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: American AssaultRifle
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 4831628932403899055}
   - component: {fileID: 7310682689760435566}
   - component: {fileID: 2073491086902292045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RearSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9012085045100461928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightHandPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 3758657882611851020}
   - component: {fileID: 6869987003542779554}
   - component: {fileID: 1340637164577373765}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PointBulletRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 7028423358569009245}
   - component: {fileID: 2517396282006744654}
   - component: {fileID: 364639244337930033}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916370241144919376}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftHandPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 6881440826860761481}
   - component: {fileID: 8825339391643458627}
   - component: {fileID: 2646609250848433072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
