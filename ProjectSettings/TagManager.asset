@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Enemy
   - Weapon
+  - TransitionImage
   layers:
   - Default
   - TransparentFX

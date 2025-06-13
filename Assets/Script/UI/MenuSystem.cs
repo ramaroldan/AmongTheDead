@@ -4,20 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuSystem : MonoBehaviour
 {
-
     public void StartGame()
     {
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        int totalScenes = SceneManager.sceneCountInBuildSettings;
-        int nextIndex = currentIndex + 1;
-
-        if (nextIndex >= totalScenes)
-        {
-            Debug.LogWarning($"GameManager: No hay más escenas en BuildSettings (índice {nextIndex}).");
-            return;
-        }
-
-        TransitionManager.Instance.PlayTransition(nextIndex);
+        SceneManager.LoadScene("Transition1");
     }
 
     public void Option()
