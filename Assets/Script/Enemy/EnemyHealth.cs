@@ -20,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
 
     AudioSource audioS;
     Animator anim;
+    EnemyMovement _enemyMovement;
     bool isSinking; //si enemegio esta cayendo
 
     void Start()
@@ -30,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
 
         anim = GetComponent<Animator>();
         audioS = GetComponent<AudioSource>();
+        _enemyMovement = GetComponent<EnemyMovement>();
 
         if (fillImage != null)
             fillImage.color = Color.green;
@@ -75,6 +77,7 @@ public class EnemyHealth : MonoBehaviour
 
         isDead = true;
         anim.SetTrigger("Death");
+        _enemyMovement.StopMoving(); // agregado para que el agent se detenga al morir
         Destroy(gameObject, 2f);
         //GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().ScoreEnemy(scoreValue);
     }
