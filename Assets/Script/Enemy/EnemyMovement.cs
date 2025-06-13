@@ -39,4 +39,9 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
     }
+
+    public void StopMoving()
+    {
+        agent.isStopped = true; // detiene el movimiento del agent 
+    }
 }

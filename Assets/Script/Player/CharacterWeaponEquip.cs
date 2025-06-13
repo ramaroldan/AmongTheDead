@@ -6,6 +6,7 @@ using UnityEngine.Animations.Rigging;
 public class CharacterWeaponEquip : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    [SerializeField] private Collider knifeCollider;
 
     [SerializeField] private List<GameObject> weaponList;
     [SerializeField] private Transform currentWeaponPos;
@@ -74,6 +75,10 @@ public class CharacterWeaponEquip : MonoBehaviour
                     anim.SetBool("IsKnifeEquip", true);
                     UnEquip();
 
+                    weaponList[0].transform.parent = knifePos.transform;
+                    weaponList[0].transform.position = knifePos.position;
+                    weaponList[0].transform.rotation = knifePos.rotation;
+                    weaponList[0].SetActive(true);
 
                     break;
                 case 2:
@@ -110,7 +115,12 @@ public class CharacterWeaponEquip : MonoBehaviour
                 rightHandIK.weight = 0f;
                 break;
             case 1:
-
+                leftHandIK.weight = 0f;
+                rightHandIK.weight = 0f;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    anim.SetTrigger("Stab");
+                }
                 break;
             case 2:
                 leftHandTarget.position = pistolIKLeftHandPos.position;
@@ -134,12 +144,22 @@ public class CharacterWeaponEquip : MonoBehaviour
 
     }
 
-    void UnEquip()
+    public void UnEquip()
     {
         foreach(GameObject wpn in weaponList)
         {
             wpn.transform.parent= null;
             wpn.SetActive(false);
         }
+    }
+
+    public void EnableKnifeCollider()
+    {
+        knifeCollider.enabled = true;
+    }
+
+    public void DisableKnifeCollider()
+    {
+        knifeCollider.enabled = false;
     }
 }

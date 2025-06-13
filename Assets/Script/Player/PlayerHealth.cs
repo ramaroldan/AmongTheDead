@@ -23,12 +23,14 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] AudioClip deathClip;
 
+    [SerializeField] KnifeStab _knifeStab;
 
     //Player Components
     AudioSource audioS; //audio
     Animator anim; //animaciones
     MainCharacterMove mainCharacterMove; //movimiento
     PlayerShooting playerShooting; //disparo
+    CharacterWeaponEquip charWeaponEquip; // animacion armas
 
     bool isDead; //muerto
     bool damaged; //daño
@@ -52,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
         mainCharacterMove = GetComponent<MainCharacterMove>(); //movimiento
         playerShooting = GetComponentInChildren<PlayerShooting>(); //disparo
         audioS = GetComponent<AudioSource>();
+        charWeaponEquip= GetComponent<CharacterWeaponEquip>();
     }
 
     // Update is called once per frame
@@ -98,7 +101,9 @@ public class PlayerHealth : MonoBehaviour
         //anim.SetTrigger("Death");
 
         mainCharacterMove.enabled = false; //desactivamos el movimiento
-        playerShooting.enabled = false; //desactivamos el disparo
+        //playerShooting.enabled = false; //desactivamos el disparo
+        charWeaponEquip.UnEquip();
+        _knifeStab.enabled = false;
         //Destroy(gameObject);
         gameManager.GameOver();
     }

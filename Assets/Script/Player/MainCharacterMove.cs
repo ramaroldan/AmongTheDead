@@ -21,6 +21,8 @@ public class MainCharacterMove : MonoBehaviour
     float horiz = 0f;
     float vert = 0f;
 
+    private bool isStabbing = false;
+
     private void Awake()
     {
         floorMask = LayerMask.GetMask("Floor"); //Busca el string piso
@@ -35,9 +37,12 @@ public class MainCharacterMove : MonoBehaviour
 
         float currentSpeed = Run(vert);
 
-        Move(horiz, vert, currentSpeed); //Movimiento
+        if (!isStabbing)
+        {
+            Move(horiz, vert, currentSpeed); //Movimiento
 
-        Turning(); //Rotacion
+            Turning(); //Rotacion
+        }
 
         Animating(vert, horiz, currentSpeed); //Animaciones
     }
@@ -102,5 +107,14 @@ public class MainCharacterMove : MonoBehaviour
         anim.SetFloat("VelX", h);
         anim.SetFloat("RunSpeed", speed);
         //Debug.Log(speed);
+    }
+
+    public void Immobilize()
+    {
+        isStabbing= true;
+    }
+    public void Remobilize()
+    {
+        isStabbing= false;
     }
 }

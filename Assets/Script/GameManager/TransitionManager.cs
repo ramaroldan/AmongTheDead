@@ -2,50 +2,56 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[DefaultExecutionOrder(-100)]
-public class TransitionManager : MonoBehaviour
+public class TransitionScript : MonoBehaviour
 {
-    public static TransitionManager Instance { get; private set; }
+    [SerializeField] CanvasGroup image1;
+    [SerializeField] CanvasGroup image2;
+    [SerializeField] float timeImage1 = 2f;
+    [SerializeField] float timeImage2 = 2f;
+    [SerializeField] float fadeDuration = 1f;
 
-    [Header("Transiciones")]
-    [SerializeField] private GameObject[] transitionImages;
-    [SerializeField] private float[] transitionTimes;
-
-    private void Awake()
+    void Start()
     {
-        if (Instance == null)
+        StartCoroutine(PlayTransition());
+    }
+
+    IEnumerator PlayTransition()
+    {
+        // Imagen 1 con fade
+        yield return StartCoroutine(FadeImage(image1, true));
+        yield return new WaitForSeconds(timeImage1);
+        yield return StartCoroutine(FadeImage(image1, false));
+
+        // Imagen 2 con fade
+        yield return StartCoroutine(FadeImage(image2, true));
+        yield return new WaitForSeconds(timeImage2);
+        yield return StartCoroutine(FadeImage(image2, false));
+
+        // Cargar la siguiente escena en la Build
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentIndex + 1);
+    }
+
+    IEnumerator FadeImage(CanvasGroup canvasGroup, bool fadeIn)
+    {
+        float startAlpha = fadeIn ? 0 : 1;
+        float endAlpha = fadeIn ? 1 : 0;
+        float timer = 0f;
+
+        canvasGroup.gameObject.SetActive(true);
+
+        while (timer < fadeDuration)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            timer += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, timer / fadeDuration);
+            yield return null;
         }
-        else Destroy(gameObject);
-    }
 
-    /// <summary>
-    /// Inicia la transición y al final carga la escena cuyo índice pase por parámetro.
-    /// </summary>
-    public void PlayTransition(int buildIndex)
-    {
-        StartCoroutine(DoTransition(buildIndex));
-    }
+        canvasGroup.alpha = endAlpha;
 
-    private IEnumerator DoTransition(int buildIndex)
-    {
-        // Primer frame
-        if (transitionImages.Length > 0 && transitionImages[0] != null)
-            transitionImages[0].SetActive(true);
-        if (transitionTimes.Length > 0)
-            yield return new WaitForSeconds(transitionTimes[0]);
-
-        // Segundo frame
-        if (transitionImages.Length > 0 && transitionImages[0] != null)
-            transitionImages[0].SetActive(false);
-        if (transitionImages.Length > 1 && transitionImages[1] != null)
-            transitionImages[1].SetActive(true);
-        if (transitionTimes.Length > 1)
-            yield return new WaitForSeconds(transitionTimes[1]);
-
-        // Carga de la escena por índice
-        SceneManager.LoadScene(buildIndex);
+        if (!fadeIn)
+            canvasGroup.gameObject.SetActive(false);
     }
 }
+
+

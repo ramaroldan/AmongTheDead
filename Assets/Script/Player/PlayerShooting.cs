@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] int damage; //Daño que hace el jugador
+    [SerializeField] int damage; //Danio que hace el jugador
     [SerializeField] float timeBetweenBullets; //Tiempo que tarda en disparar el jugador
     [SerializeField] float range; //Rango de disparo del jugador, longitud del raycast
     [SerializeField] LayerMask shooteableMask; //Capas que se pueden disparar
@@ -66,7 +66,7 @@ public class PlayerShooting : MonoBehaviour
             //compruebo si ese gameobject tiene el componente EnemyHealth
             if(_object.GetComponent<EnemyHealth>())
             {
-                _object.GetComponent<EnemyHealth>().TakeDamage(damage, hit.point);//le aplico el daño
+                _object.GetComponent<EnemyHealth>().TakeDamage(damage, hit.point);//le aplico el danio
             }
         }
         else

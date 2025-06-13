@@ -27,16 +27,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadNextScene()
     {
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        int totalScenes = SceneManager.sceneCountInBuildSettings;
-        int nextIndex = currentIndex + 1;
+        // Obtener el índice de la escena actual
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (nextIndex >= totalScenes)
-        {
-            Debug.LogWarning($"GameManager: No hay más escenas en BuildSettings (índice {nextIndex}).");
-            return;
-        }
-
-        TransitionManager.Instance.PlayTransition(nextIndex);
+        // Cargar la siguiente escena por índice
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }
