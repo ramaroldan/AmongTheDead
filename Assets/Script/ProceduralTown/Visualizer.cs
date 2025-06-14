@@ -9,22 +9,22 @@ namespace SVS
     {
 
         [Header("Enemigos")]
-        [Tooltip("Prefab del enemigo que perseguirá al jugador")]
         public GameObject enemyPrefab;
         [SerializeField] Transform parentEnemies;
-
-        [Tooltip("Número de enemigos a generar")]
         public int enemyCount = 5;
-        
-        //private GameObject _playerInstance; //instancia del jugador
-        private GameObject _finishMarkerInstance; //instancia de marca final
-        private GameObject _groundPlaneInstance; //instancia de Plane
-        
         private List<GameObject> _enemyInstances = new List<GameObject>(); // Lista de control de instancias de enemigos
 
-        //[Header("Prefabs Player && Markers")]
-        //[Tooltip("Prefab del jugador que spawnará al inicio del pueblo")]
-        //public GameObject player;
+        [Header("Kits Médicos")]
+        public GameObject medicalKitPrefab;
+        public int medicalKitCount = 3;
+        [SerializeField] Transform parentMedicalKits;
+        private List<GameObject> _medicalKitInstances = new List<GameObject>();
+
+        [Header("SecondPlayer")]
+        private GameObject _finishMarkerInstance; //instancia de marca final
+
+        [Header("Ground")]
+        private GameObject _groundPlaneInstance; //instancia de Plane
 
         [Tooltip("Prefab de la zona de meta que cargará la siguiente escena")]
         public GameObject finishMarker;
@@ -72,6 +72,7 @@ namespace SVS
         public void CreateTown()
         {
             ClearEnemies();
+            ClearMedicalKits();
 
             lenght = roadLenght;
 
@@ -155,6 +156,7 @@ namespace SVS
             SpawnFinishZoneAtEnd();
             SpawnGroundPlane();
             SpawnEnemies(roadHelper.GetRoadPositions());
+            SpawnMedicalKits(roadHelper.GetRoadPositions());
 
             yield return new WaitForSeconds(0.8f);
             StartCoroutine(structureHelper.PlaceStructuresAroundRoad(roadHelper.GetRoadPositions()));
@@ -195,7 +197,7 @@ namespace SVS
                 return;
             }
 
-            Vector3 groundPosition = new Vector3(0, 0, 0);  
+            Vector3 groundPosition = new Vector3(0, 0, 0);
 
             if (_groundPlaneInstance == null)
             {
@@ -216,8 +218,6 @@ namespace SVS
                 return;
             }
 
-
-
             var spawnPositions = GetEnemySpawnPositions(roadPositions, enemyCount);
 
             foreach (var pos in spawnPositions)
@@ -229,32 +229,26 @@ namespace SVS
                 // Guarda la instancia en la lista
                 _enemyInstances.Add(enemyIns);
 
-                // Asigna el player al chase
-                /*var chase = enemyIns.GetComponent<EnemyChase>();
-                if (chase != null && _playerInstance != null)
-                    chase.playerTransform = _playerInstance.transform;*/
             }
 
-            
-            
         }
 
         //genera las posiciones de los enemies
         private List<Vector3> GetEnemySpawnPositions(List<Vector3Int> roadPositions, int count)
         {
-            var list = new List<Vector3>(); 
-            var rnd = new System.Random(); 
-            int attempts = 0; 
+            var list = new List<Vector3>();
+            var rnd = new System.Random();
+            int attempts = 0;
 
-            while (list.Count < count && attempts < count * 10) 
+            while (list.Count < count && attempts < count * 10)
             {
                 attempts++;
                 // Elige una carretera al azar
                 var roadPos = roadPositions[rnd.Next(roadPositions.Count)];
                 // Desplázate lateralmente 2 a 4 unidades
-                float offsetX = (float)(rnd.NextDouble() * 4 - 2); 
+                float offsetX = (float)(rnd.NextDouble() * 4 - 2);
                 float offsetZ = (float)(rnd.NextDouble() * 4 - 2);
-                Vector3 spawn = new Vector3(roadPos.x + offsetX, roadPos.y, roadPos.z + offsetZ); 
+                Vector3 spawn = new Vector3(roadPos.x + offsetX, roadPos.y, roadPos.z + offsetZ);
 
                 // Comprueba que no esté demasiado cerca de otro enemigo
                 if (!list.Exists(p => Vector3.Distance(p, spawn) < 2f)) // Distancia mínima de 2 unidades
@@ -273,7 +267,55 @@ namespace SVS
             _enemyInstances.Clear();
         }
 
+        private void SpawnMedicalKits(List<Vector3Int> roadPositions)
+        {
+            if (medicalKitPrefab == null)
+            {
+                Debug.LogWarning("No has asignado el medicalKitPrefab en el Inspector.");
+                return;
+            }
 
+            var spawnPositions = GetMedicalKitSpawnPositions(roadPositions, medicalKitCount);
+
+            foreach (var pos in spawnPositions)
+            {
+                Vector3 worldPos = new Vector3(pos.x, pos.y + 0.1f, pos.z);
+                var kit = Instantiate(medicalKitPrefab, worldPos, Quaternion.identity);
+                if (parentMedicalKits != null)
+                    kit.transform.SetParent(parentMedicalKits);
+                _medicalKitInstances.Add(kit);
+            }
+        }
+
+        private List<Vector3> GetMedicalKitSpawnPositions(List<Vector3Int> roadPositions, int count)
+        {
+            var list = new List<Vector3>();
+            var rnd = new System.Random();
+            int attempts = 0;
+
+            while (list.Count < count && attempts < count * 10)
+            {
+                attempts++;
+                var roadPos = roadPositions[rnd.Next(roadPositions.Count)];
+                float offsetX = (float)(rnd.NextDouble() * 4 - 2);
+                float offsetZ = (float)(rnd.NextDouble() * 4 - 2);
+                Vector3 spawn = new Vector3(roadPos.x + offsetX, roadPos.y, roadPos.z + offsetZ);
+
+                if (!list.Exists(p => Vector3.Distance(p, spawn) < 2f))
+                    list.Add(spawn);
+            }
+            return list;
+        }
+
+        private void ClearMedicalKits()
+        {
+            foreach (var kit in _medicalKitInstances)
+            {
+                if (kit != null)
+                    Destroy(kit);
+            }
+            _medicalKitInstances.Clear();
+        }
 
     }
 
