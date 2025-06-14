@@ -37,14 +37,6 @@ public class EnemyHealth : MonoBehaviour
             fillImage.color = Color.green;
     }
 
-    void Update()
-    {
-        /*if (isSinking == true) //si el enemigo esta cayendo
-        {
-            transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime); //se mueve hacia abajo
-        }*/
-    }
-
     //funcion publica porque voy a llamarla desde el script de disparo del player
     public void TakeDamage(int amount, Vector3 point)
     {
@@ -78,14 +70,8 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
         anim.SetTrigger("Death");
         _enemyMovement.StopMoving(); // agregado para que el agent se detenga al morir
-        Destroy(gameObject, 2f);
-        //GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().ScoreEnemy(scoreValue);
-    }
-
-   /* public void StartSinking() //funcion para que el enemigo caiga
-    { 
-        isSinking = true;
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false; //desactivamos la navegacion>
         Destroy(gameObject, 2f);
-    }*/
+    }
+
 }
