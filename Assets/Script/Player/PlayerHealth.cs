@@ -20,9 +20,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Color flashColour; //color de la imagen de daño
 
     [SerializeField] GameManager gameManager;
-
     [SerializeField] AudioClip deathClip;
-
     [SerializeField] KnifeStab _knifeStab;
 
     //Player Components
