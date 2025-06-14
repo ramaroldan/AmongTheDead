@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1177,6 +1177,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &584084729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 584084730}
+  m_Layer: 0
+  m_Name: ParentKitMedical
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &584084730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584084729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.12461033, y: 0.22820494, z: 0.26531088}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &667329227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1837,11 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1315893942941432840, guid: cd415a43747f0474480c2567bc1faaee,
     type: 3}
   parentEnemies: {fileID: 1963802156}
-  enemyCount: 20
+  enemyCount: 30
+  medicalKitPrefab: {fileID: 905500992213887725, guid: d044e94e7391dfc4292f2a7fb2348d0c,
+    type: 3}
+  medicalKitCount: 5
+  parentMedicalKits: {fileID: 584084730}
   finishMarker: {fileID: 6029364925086953252, guid: 9d854c7f7347fe940b580e6beabebb45,
     type: 3}
   groundPlane: {fileID: 460768471493027131, guid: 129329118b21f7d47b55123d2468f810,
@@ -4473,6 +4508,7 @@ SceneRoots:
   - {fileID: 535779211}
   - {fileID: 1809905307}
   - {fileID: 1963802156}
+  - {fileID: 584084730}
   - {fileID: 1938670984}
   - {fileID: 3704350513588673018}
   - {fileID: 525031328}
