@@ -44,4 +44,9 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.isStopped = true; // detiene el movimiento del agent 
     }
+
+    public void ResumeMoving()
+    {
+        agent.isStopped = false; // permite el movimiento del agent
+    }
 }

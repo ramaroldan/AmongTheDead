@@ -6,6 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] float timeBetweenAttacks; //tiempo entre ataques
     [SerializeField] int attackDamage; //daño del ataque
+    [SerializeField] private Collider _handCollider;
 
     Animator anim;
     GameObject player; //objeto player
@@ -51,8 +52,8 @@ public class EnemyAttack : MonoBehaviour
     {
         Animating();
         timer = 0;
-        playerHealth.TakeDamage(attackDamage); //le hacemos daño al player
-        
+        //playerHealth.TakeDamage(attackDamage); //le hacemos daño al player
+
     }
 
     void Animating()
@@ -61,5 +62,20 @@ public class EnemyAttack : MonoBehaviour
         {
             anim.SetTrigger("Attack");
         }
+    }
+
+    public void EnableHandCollider()
+    {
+        _handCollider.enabled = true;
+    }
+
+    public void DisableHandCollider()
+    {
+        _handCollider.enabled = false;
+    }
+
+    public int getAttackDamage()
+    {
+        return attackDamage;
     }
 }
