@@ -19,12 +19,24 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        // Pausar el juego
+        //Time.timeScale = 0f;
+
+        // Destruir todos los enemigos 
+        foreach (var enemy in FindObjectsOfType<EnemyHealth>())
+            Destroy(enemy.gameObject);
+
+        // Mostrar el panel de Game Over
+        if (panelGameOver == null)
+        {
+            Debug.LogError("Panel Game Over no asignado en GameManager.");
+            return;
+        }
         panelGameOver.SetActive(true);
     }
 
-    /// <summary>
+
     /// Calcula el índice de la siguiente escena en BuildSettings y la arranca con transición.
-    /// </summary>
     public void LoadNextScene()
     {
         // Obtener el índice de la escena actual
