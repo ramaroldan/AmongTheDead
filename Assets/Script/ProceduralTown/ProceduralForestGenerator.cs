@@ -15,6 +15,7 @@ public class ProceduralForestGenerator : MonoBehaviour
     public List<GameObject> treePrefabs;
     public List<GameObject> rockPrefabs;
     public GameObject bossPrefab;
+    public GameObject groundPrefab; // <-- Nuevo campo para el ground
 
     [Header("Porcentaje de rocas (0 a 1)")]
     [Range(0f, 1f)]
@@ -31,6 +32,18 @@ public class ProceduralForestGenerator : MonoBehaviour
     void GenerateForest()
     {
         Vector3 center = transform.position;
+
+        // Instanciar el ground si está asignado
+        if (groundPrefab != null)
+        {
+            Vector3 groundPos = new Vector3(center.x, terrainHeight - 0.01f, center.z);
+            GameObject ground = Instantiate(groundPrefab, groundPos, Quaternion.identity, this.transform);
+
+            // Ajustar el tamaño del ground para cubrir el área (asume un plane de 10x10 unidades)
+            float scaleX = width / 10f;
+            float scaleZ = depth / 10f;
+            ground.transform.localScale = new Vector3(scaleX, 1, scaleZ);
+        }
 
         for (float x = -width / 2f; x < width / 2f; x += spacing)
         {
