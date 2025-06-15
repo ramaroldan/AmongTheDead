@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Tilemaps;
 
 public class CharacterWeaponEquip : MonoBehaviour
 {
@@ -47,14 +48,19 @@ public class CharacterWeaponEquip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            weaponSelector = 1;
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
-            weaponSelector = 2;
-        else if(Input.GetKeyDown(KeyCode.Alpha3)) 
-            weaponSelector = 3;
-        else if(Input.GetKeyDown(KeyCode.Alpha0))
+        Item item = InventoryManager.instance.GetSelectedItem(false);
+        if (Input.GetKeyDown(KeyCode.Alpha0) || item == null)
             weaponSelector = 0;
+        if(item != null)
+        {
+            if (item.type == Item.ItemType.Knife)
+                weaponSelector = 1;
+            else if (item.type == Item.ItemType.Pistol)
+                weaponSelector = 2;
+            else if (item.type == Item.ItemType.Rifle)
+                weaponSelector = 3;
+        }
+            
 
         if(weaponSelector != weapontTemp)
         {
