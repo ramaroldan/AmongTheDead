@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 77c2b65bb5ec537498185c6dfdaa8e94, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -113,3 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90740f541cb5bd346a1f58fce27dc24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 123680293494462457}
+  selectedColor: {r: 0.016197944, g: 0.06695617, b: 0.49056602, a: 1}
+  notSelectedColor: {r: 0.03675994, g: 0.16037738, b: 0.035555363, a: 1}
