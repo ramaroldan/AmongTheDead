@@ -9,31 +9,27 @@ namespace SVS
     {
 
         [Header("Enemigos")]
-        public GameObject enemyPrefab;
+        [SerializeField] GameObject enemyPrefab;
         [SerializeField] Transform parentEnemies;
-        public int enemyCount = 5;
+        [SerializeField] int enemyCount = 5;
         private List<GameObject> _enemyInstances = new List<GameObject>(); // Lista de control de instancias de enemigos
 
         [Header("Kits Médicos")]
-        public GameObject medicalKitPrefab;
-        public int medicalKitCount = 3;
+        [SerializeField] GameObject medicalKitPrefab;
+        [SerializeField] int medicalKitCount = 3;
         [SerializeField] Transform parentMedicalKits;
         private List<GameObject> _medicalKitInstances = new List<GameObject>();
 
         [Header("SecondPlayer")]
-        private GameObject _finishMarkerInstance; //instancia de marca final
-
-        [Header("Ground")]
+        [SerializeField] GameObject finishMarker;
         private GameObject _groundPlaneInstance; //instancia de Plane
 
-        [Tooltip("Prefab de la zona de meta que cargará la siguiente escena")]
-        public GameObject finishMarker;
-
-        [Tooltip("Prefab del plano base donde se genera el pueblo")]
-        public GameObject groundPlane;
+        [Header("Ground")]
+        [SerializeField] GameObject groundPlane;
+        private GameObject _finishMarkerInstance; //instancia de marca final
 
         [Header("Map")]
-        public LSystemGenerator lSystem;
+        [SerializeField] LSystemGenerator lSystem;
         List<Vector3> positions = new List<Vector3>();
 
         [SerializeField] RoadHelper roadHelper;
