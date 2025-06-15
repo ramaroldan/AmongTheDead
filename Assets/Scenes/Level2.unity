@@ -724,12 +724,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingTypes:
   - prefabs:
-    - {fileID: 1712148364640842, guid: a58c8bcd22bee1f4cb166841254a2ea4, type: 3}
+    - {fileID: 142588779044106256, guid: 0f1e45a5782b5e44197bcddb5d2a1e8e, type: 3}
     sizeRequired: 3
     quantity: 1
     quantityAlreadyPlaced: 0
   - prefabs:
-    - {fileID: 8332767415566335999, guid: 2f38e6e6e4bbf834b8e22cbfa772e4b9, type: 3}
+    - {fileID: 5101275982694437103, guid: a5c1e3370bf7ae64480d7847da32da94, type: 3}
     sizeRequired: 2
     quantity: 1
     quantityAlreadyPlaced: 0
@@ -740,8 +740,8 @@ MonoBehaviour:
     quantity: 5
     quantityAlreadyPlaced: 0
   - prefabs:
-    - {fileID: 1335726306580732, guid: 23f312332b5cd5542ba196450880e89b, type: 3}
-    - {fileID: 1656226002977108, guid: e191e21fcb275784a9f8b6d08dcd932c, type: 3}
+    - {fileID: 1004710975425532, guid: c0aa33e678586aa43a1a9254fdfdfb4d, type: 3}
+    - {fileID: 9124491220197802799, guid: 43339d68ee8eead4b9c1ae419fa43a3e, type: 3}
     sizeRequired: 1
     quantity: -1
     quantityAlreadyPlaced: 0
@@ -1731,8 +1731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259fe62cf81af424087e0a54c155c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 20
-  depth: 20
+  width: 30
+  depth: 30
   spacing: 1
   treePrefabs:
   - {fileID: 1992550509532770, guid: e409369781974684095924fc5a1fce2e, type: 3}
@@ -1755,6 +1755,8 @@ MonoBehaviour:
   - {fileID: 7430613673848241274, guid: b97966213bd2b9744a832c1f1d0c2177, type: 3}
   - {fileID: 3827115935011166076, guid: 730c19e536c72bf44895e5cce6d31751, type: 3}
   bossPrefab: {fileID: 0}
+  groundPrefab: {fileID: 460768471493027131, guid: 129329118b21f7d47b55123d2468f810,
+    type: 3}
   rockChance: 0.3
   terrainHeight: 0
 --- !u!1 &832575517
@@ -3407,7 +3409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1788274552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4722,6 +4724,7 @@ SceneRoots:
   - {fileID: 1054536008}
   - {fileID: 1788274553}
   - {fileID: 300608594}
+  - {fileID: 786754436}
   - {fileID: 1475290831}
   - {fileID: 1658180920}
   - {fileID: 535779211}
@@ -4733,4 +4736,3 @@ SceneRoots:
   - {fileID: 525031328}
   - {fileID: 1549044011}
   - {fileID: 1814320759}
-  - {fileID: 786754436}
