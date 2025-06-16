@@ -31,11 +31,11 @@ public class MenuPause : MonoBehaviour
                 Cursor.visible = true; //Muestra el cursor
                                        // Cursor.lockState = CursorLockMode.None; //Desactiva el cursor
 
-                AudioSource[] sounds = FindObjectsOfType<AudioSource>(); //Busca todos los sonidos
+                /*AudioSource[] sounds = FindObjectsOfType<AudioSource>(); //Busca todos los sonidos
                 for (int i = 0; i < sounds.Length; i++)
                 {
                     sounds[i].Pause(); //Pausa todos los sonidos
-                }
+                }*/
             }
             else if (isPaused == true)
             {
