@@ -49,7 +49,13 @@ public class CharacterWeaponEquip : MonoBehaviour
     void Update()
     {
         Item item = InventoryManager.instance.GetSelectedItem(false);
-        if (Input.GetKeyDown(KeyCode.Alpha0) || item == null)
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            weaponSelector = 0;
+            InventoryManager.instance.ChangeSelectedSlot(-1);
+        }
+
+        if (item == null)
             weaponSelector = 0;
         if(item != null)
         {
