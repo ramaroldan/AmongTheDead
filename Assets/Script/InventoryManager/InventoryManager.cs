@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -43,7 +44,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void ChangeSelectedSlot(int newValue)
+    public void ChangeSelectedSlot(int newValue)
     {
         if(selectedSlot >= 0)
         {
