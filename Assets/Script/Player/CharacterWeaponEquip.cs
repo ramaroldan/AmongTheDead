@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class CharacterWeaponEquip : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    [SerializeField] PlayerHealth playerHealth;
     [SerializeField] private Collider knifeCollider;
 
     [SerializeField] private List<GameObject> weaponList;
@@ -43,6 +44,7 @@ public class CharacterWeaponEquip : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
+        playerHealth= GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -65,6 +67,8 @@ public class CharacterWeaponEquip : MonoBehaviour
                 weaponSelector = 2;
             else if (item.type == Item.ItemType.Rifle)
                 weaponSelector = 3;
+            else if (item.type == Item.ItemType.MedKit)
+                weaponSelector = 4;
         }
             
 
@@ -74,6 +78,7 @@ public class CharacterWeaponEquip : MonoBehaviour
             switch (weaponSelector)
             {
                 case 0:
+                case 4:
                     anim.SetBool("IsPistolEquip", false);
                     anim.SetBool("IsRifleEquip", false);
                     anim.SetBool("IsKnifeEquip", false);
@@ -149,6 +154,14 @@ public class CharacterWeaponEquip : MonoBehaviour
                 rightHandTarget.rotation = rifleIKRightHandPos.rotation;
                 leftHandIK.weight = 0.9f;
                 rightHandIK.weight = 0.9f;
+                break;
+            case 4:
+                if(Input.GetMouseButtonDown(0) && item.actionType == Item.ActionType.Heal)
+                {
+                    item = InventoryManager.instance.GetSelectedItem(true);
+                    playerHealth.ReceiveHealth(item.countHealth);
+
+                }
                 break;
         }
         

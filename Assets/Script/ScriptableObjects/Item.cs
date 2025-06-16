@@ -11,6 +11,7 @@ public class Item : ScriptableObject
     //public TileBase tile;
     public ItemType type;
     public ActionType actionType;
+    public float countHealth;
     //public Vector2Int range = new Vector2Int(5,4);
 
     [Header("Only UI")]
