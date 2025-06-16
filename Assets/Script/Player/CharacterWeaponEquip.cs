@@ -156,7 +156,9 @@ public class CharacterWeaponEquip : MonoBehaviour
                 rightHandIK.weight = 0.9f;
                 break;
             case 4:
-                if(Input.GetMouseButtonDown(0) && item.actionType == Item.ActionType.Heal)
+                leftHandIK.weight = 0f;
+                rightHandIK.weight = 0f;
+                if (Input.GetMouseButtonDown(0) && item.actionType == Item.ActionType.Heal)
                 {
                     item = InventoryManager.instance.GetSelectedItem(true);
                     playerHealth.ReceiveHealth(item.countHealth);
