@@ -5,6 +5,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject panelGameOver;
+    [SerializeField] private MainCharacterMove _playerMove;
 
     public TextMeshProUGUI findObjectiveText;
     public static GameManager Instance { get; private set; }
@@ -47,7 +48,12 @@ public class GameManager : MonoBehaviour
 
         // Cargar la siguiente escena por índice
         SceneManager.LoadScene(currentSceneIndex + 1);
+        Invoke("ResetPlayerPosition", 5f);
         
     }
 
+    private void ResetPlayerPosition()
+    {
+        _playerMove.ResetPositionAndRotation();
+    }
 }

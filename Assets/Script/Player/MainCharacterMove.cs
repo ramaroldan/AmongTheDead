@@ -117,4 +117,10 @@ public class MainCharacterMove : MonoBehaviour
     {
         isStabbing= false;
     }
+
+    public void ResetPositionAndRotation()
+    {
+        playerRigibody.transform.position = Vector3.zero;
+        playerRigibody.rotation = Quaternion.identity;
+    }
 }
