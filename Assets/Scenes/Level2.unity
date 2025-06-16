@@ -1001,7 +1001,7 @@ MonoBehaviour:
     quantity: 1
     quantityAlreadyPlaced: 0
   - prefabs:
-    - {fileID: 5101275982694437103, guid: a5c1e3370bf7ae64480d7847da32da94, type: 3}
+    - {fileID: 344595039856711069, guid: 837618ec7f0148f49a5fd72b34a4fc88, type: 3}
     sizeRequired: 2
     quantity: 1
     quantityAlreadyPlaced: 0
