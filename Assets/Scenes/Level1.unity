@@ -1534,9 +1534,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startItems:
   - {fileID: 11400000, guid: a455bb36ed415694d987e77e4152c666, type: 2}
-  - {fileID: 11400000, guid: 2afcca3516753b0428774afb3dff4acd, type: 2}
-  - {fileID: 11400000, guid: 21643dc52750ae742a48151805ffbf28, type: 2}
-  - {fileID: 11400000, guid: 9e84fd98fe89283488f4dc41b237128b, type: 2}
   maxStackedItems: 10
   inventorySlots:
   - {fileID: 2061176312}
@@ -2387,7 +2384,7 @@ MonoBehaviour:
   enemyCount: 30
   medicalKitPrefab: {fileID: 905500992213887725, guid: d044e94e7391dfc4292f2a7fb2348d0c,
     type: 3}
-  medicalKitCount: 5
+  medicalKitCount: 10
   parentMedicalKits: {fileID: 584084730}
   finishMarker: {fileID: 6029364925086953252, guid: 9d854c7f7347fe940b580e6beabebb45,
     type: 3}
