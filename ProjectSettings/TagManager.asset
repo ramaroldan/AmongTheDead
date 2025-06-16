@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Weapon
   - TransitionImage
+  - Rocklvl2
   layers:
   - Default
   - TransparentFX

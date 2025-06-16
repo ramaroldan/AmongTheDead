@@ -2953,6 +2953,7 @@ GameObject:
   - component: {fileID: 1475290829}
   - component: {fileID: 1475290828}
   - component: {fileID: 1475290832}
+  - component: {fileID: 1475290833}
   m_Layer: 5
   m_Name: CanvasUI
   m_TagString: Untagged
@@ -3060,10 +3061,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a92239e68c4a24ba4f6824efec53f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 949378604}
   distanceText: {fileID: 90171518}
   unitsToMeters: 1
   decimals: 1
+--- !u!114 &1475290833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475290827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00307610102bcb47af7a34b35994be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1489504440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,6 +3918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelGameOver: {fileID: 146923195}
+  findObjectiveText: {fileID: 1197328543}
 --- !u!1001 &1814320759
 PrefabInstance:
   m_ObjectHideFlags: 0

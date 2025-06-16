@@ -10,7 +10,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [Header("UI")]
     public Image image;
-    public  TextMeshProUGUI countText;
+    public TextMeshProUGUI countText;
 
     [HideInInspector] public Item item;
     [HideInInspector] public int count = 1;
