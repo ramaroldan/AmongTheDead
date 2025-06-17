@@ -13,6 +13,9 @@ public class CharacterWeaponEquip : MonoBehaviour
     [SerializeField] private List<GameObject> weaponList;
     [SerializeField] private Transform currentWeaponPos;
 
+    [Header("Bag")]
+    [SerializeField] private Transform weaponInBag;
+    
     [Header("Weapon Positions")]
     [SerializeField] private Transform knifePos;
     [SerializeField] private Transform pistolPos;
@@ -175,7 +178,8 @@ public class CharacterWeaponEquip : MonoBehaviour
     {
         foreach(GameObject wpn in weaponList)
         {
-            wpn.transform.parent= null;
+            //wpn.transform.parent = null;
+            
             wpn.SetActive(false);
         }
     }
@@ -188,5 +192,11 @@ public class CharacterWeaponEquip : MonoBehaviour
     public void DisableKnifeCollider()
     {
         knifeCollider.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        weaponSelector = 0;
+        UnEquip();
     }
 }

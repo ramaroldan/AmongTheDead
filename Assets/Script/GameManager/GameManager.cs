@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject panelGameOver;
     [SerializeField] private MainCharacterMove _playerMove;
 
-    public TextMeshProUGUI findObjectiveText;
+    //blic TextMeshProUGUI findObjectiveText;
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+        
     }
 
     public void GameOver()
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     /// Calcula el índice de la siguiente escena en BuildSettings y la arranca con transición.
     public void LoadNextScene()
     {
-        findObjectiveText.text = "Find Your Wife Elena";
+        //findObjectiveText.text = "Find Your Wife Elena";
         // Obtener el índice de la escena actual
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -54,6 +55,12 @@ public class GameManager : MonoBehaviour
 
     private void ResetPlayerPosition()
     {
+        _playerMove = FindObjectOfType<MainCharacterMove>();
         _playerMove.ResetPositionAndRotation();
+    }
+
+    private void LateUpdate()
+    {
+        
     }
 }

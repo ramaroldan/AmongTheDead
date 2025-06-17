@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
@@ -10,5 +11,13 @@ public class DontDestroy : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    
+    private void LateUpdate()
+    {
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+    }
+
 }

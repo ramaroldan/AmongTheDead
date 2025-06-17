@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -41,6 +41,14 @@ public class InventoryManager : MonoBehaviour
             {
                 ChangeSelectedSlot(number - 1);
             }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if(SceneManager.GetActiveScene().name == "Menu")
+        {
+            Destroy(gameObject);
         }
     }
 
