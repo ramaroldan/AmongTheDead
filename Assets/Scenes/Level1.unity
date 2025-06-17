@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -610,9 +610,10 @@ GameObject:
   - component: {fileID: 146923198}
   - component: {fileID: 146923197}
   - component: {fileID: 146923199}
+  - component: {fileID: 146923200}
   m_Layer: 5
   m_Name: PanelGameOver
-  m_TagString: Untagged
+  m_TagString: panelGameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -685,6 +686,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05d97caa39d57dd4faa246a147b3645f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &146923200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146923195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00307610102bcb47af7a34b35994be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &300608592
@@ -3801,6 +3814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelGameOver: {fileID: 146923195}
   _playerMove: {fileID: 3704350513588673020}
+  inventary: {fileID: 2016370879}
 --- !u!1 &1829349701
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,7 +4313,7 @@ GameObject:
   - component: {fileID: 2016370881}
   m_Layer: 5
   m_Name: Toolbar
-  m_TagString: Untagged
+  m_TagString: Inventary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
