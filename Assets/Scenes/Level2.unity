@@ -5599,6 +5599,11 @@ PrefabInstance:
       propertyPath: weaponList.Array.data[2]
       value: 
       objectReference: {fileID: 525031329}
+    - target: {fileID: 4820549665757230617, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7263606788758540147, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
       propertyPath: slider
