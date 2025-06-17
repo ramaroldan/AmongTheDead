@@ -9,7 +9,21 @@ public class KnifeStab : MonoBehaviour
     [SerializeField] float timeBetweenStabs; //Tiempo que tarda en apunialar el jugador
     [SerializeField] LayerMask stabMask; //Capas que se pueden apunialar
     
+    AudioSource audioS;
 
+    private void Start()
+    {
+        audioS = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            audioS.Play();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
