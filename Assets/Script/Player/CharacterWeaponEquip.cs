@@ -7,11 +7,15 @@ using UnityEngine.Tilemaps;
 public class CharacterWeaponEquip : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    [SerializeField] PlayerHealth playerHealth;
     [SerializeField] private Collider knifeCollider;
 
     [SerializeField] private List<GameObject> weaponList;
     [SerializeField] private Transform currentWeaponPos;
 
+    [Header("Bag")]
+    [SerializeField] private Transform weaponInBag;
+    
     [Header("Weapon Positions")]
     [SerializeField] private Transform knifePos;
     [SerializeField] private Transform pistolPos;
@@ -43,6 +47,7 @@ public class CharacterWeaponEquip : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
+        playerHealth= GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -65,6 +70,8 @@ public class CharacterWeaponEquip : MonoBehaviour
                 weaponSelector = 2;
             else if (item.type == Item.ItemType.Rifle)
                 weaponSelector = 3;
+            else if (item.type == Item.ItemType.MedKit)
+                weaponSelector = 4;
         }
             
 
@@ -74,6 +81,7 @@ public class CharacterWeaponEquip : MonoBehaviour
             switch (weaponSelector)
             {
                 case 0:
+                case 4:
                     anim.SetBool("IsPistolEquip", false);
                     anim.SetBool("IsRifleEquip", false);
                     anim.SetBool("IsKnifeEquip", false);
@@ -150,6 +158,16 @@ public class CharacterWeaponEquip : MonoBehaviour
                 leftHandIK.weight = 0.9f;
                 rightHandIK.weight = 0.9f;
                 break;
+            case 4:
+                leftHandIK.weight = 0f;
+                rightHandIK.weight = 0f;
+                if (Input.GetMouseButtonDown(0) && item.actionType == Item.ActionType.Heal)
+                {
+                    item = InventoryManager.instance.GetSelectedItem(true);
+                    playerHealth.ReceiveHealth(item.countHealth);
+
+                }
+                break;
         }
         
 
@@ -160,7 +178,8 @@ public class CharacterWeaponEquip : MonoBehaviour
     {
         foreach(GameObject wpn in weaponList)
         {
-            wpn.transform.parent= null;
+            //wpn.transform.parent = null;
+            
             wpn.SetActive(false);
         }
     }
@@ -173,5 +192,11 @@ public class CharacterWeaponEquip : MonoBehaviour
     public void DisableKnifeCollider()
     {
         knifeCollider.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        weaponSelector = 0;
+        UnEquip();
     }
 }
