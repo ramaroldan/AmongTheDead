@@ -31,16 +31,20 @@ public class GameManager : MonoBehaviour
         foreach (var enemy in FindObjectsOfType<EnemyHealth>())
             Destroy(enemy.gameObject);
 
-        // Mostrar el panel de Game Over
+
+        // Buscar el panel de Game Over por tag si no está asignado
         if (panelGameOver == null)
         {
-            Debug.LogError("Panel Game Over no asignado en GameManager.");
-            return;
+            panelGameOver = GameObject.FindWithTag("panelGameOver");
+            if (panelGameOver == null)
+            {
+                Debug.LogError("Panel Game Over no asignado ni encontrado por tag en GameManager.");
+                return;
+            }
         }
         inventary = GameObject.FindWithTag("Inventary");
         inventary.SetActive(false);
         panelGameOver.SetActive(true);
-        
     }
 
 

@@ -610,7 +610,6 @@ GameObject:
   - component: {fileID: 146923198}
   - component: {fileID: 146923197}
   - component: {fileID: 146923199}
-  - component: {fileID: 146923200}
   m_Layer: 5
   m_Name: PanelGameOver
   m_TagString: panelGameOver
@@ -686,18 +685,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05d97caa39d57dd4faa246a147b3645f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &146923200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146923195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d00307610102bcb47af7a34b35994be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &300608592
@@ -3772,7 +3759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1809905307
 Transform:
   m_ObjectHideFlags: 0
@@ -3998,7 +3985,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
