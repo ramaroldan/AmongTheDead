@@ -2320,7 +2320,7 @@ MonoBehaviour:
     type: 3}
   medicalKitCount: 10
   parentMedicalKits: {fileID: 584084730}
-  finishMarker: {fileID: 6029364925086953252, guid: 9d854c7f7347fe940b580e6beabebb45,
+  finishMarker: {fileID: 1435641913650076215, guid: 23dbc6341a15ccd4d9632d66366f4e39,
     type: 3}
   groundPlane: {fileID: 460768471493027131, guid: 129329118b21f7d47b55123d2468f810,
     type: 3}
