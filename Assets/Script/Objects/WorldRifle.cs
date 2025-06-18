@@ -7,6 +7,16 @@ public class WorldRifle : MonoBehaviour
     [Header("Item Rifle")]
     public Item item;
 
+    [Header("Components")]
+    AudioSource audioSource;
+    AudioClip audioClip;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioClip = audioSource.clip;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -14,6 +24,7 @@ public class WorldRifle : MonoBehaviour
             bool canAdd = InventoryManager.instance.AddItem(item);
             if (canAdd)
             {
+                AudioSource.PlayClipAtPoint(audioClip, transform.position, 0.5f);
                 Destroy(gameObject);
             }
         }

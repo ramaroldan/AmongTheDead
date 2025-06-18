@@ -5,23 +5,18 @@ using UnityEngine;
 public class MedicalHealth : MonoBehaviour
 {
     //[SerializeField] float countHelath; //cantidad de salud que da el objeto
+    [Header("Item MedKit")]
     [SerializeField] Item item;
 
-    AudioSource audioS;
+    [Header("Components")]
+    AudioSource audioSource;
+    AudioClip audioClip;
 
-    private void Start()
+    void Awake()
     {
-        audioS = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        audioClip = audioSource.clip;
     }
-
-    /*private void Update()
-    {
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            audioS.Play();
-        }
-    }*/
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,6 +26,7 @@ public class MedicalHealth : MonoBehaviour
             bool canAdd = InventoryManager.instance.AddItem(item);
             if(canAdd)
             {
+                AudioSource.PlayClipAtPoint(audioClip, transform.position, 0.5f);
                 Destroy(gameObject);
             }
         }
