@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class CharacterWeaponEquip : MonoBehaviour
 {
+    AudioSource _audioSource;
     [SerializeField] Animator anim;
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] private Collider knifeCollider;
@@ -40,6 +41,12 @@ public class CharacterWeaponEquip : MonoBehaviour
     [Header("Rifle IK Positions")]
     [SerializeField] private Transform rifleIKRightHandPos;
     [SerializeField] private Transform rifleIKLeftHandPos;
+    
+    [Header("Audio section")]
+    [SerializeField] AudioClip _knifeDraw;
+    [SerializeField] AudioClip _pistolCock;
+    [SerializeField] AudioClip _rifleLeverAction;
+    [SerializeField] AudioClip _medKitBandage;
 
     int weaponSelector = 0;
     int weapontTemp = 0;
@@ -48,6 +55,7 @@ public class CharacterWeaponEquip : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerHealth= GetComponent<PlayerHealth>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -99,7 +107,7 @@ public class CharacterWeaponEquip : MonoBehaviour
                     weaponList[0].transform.position = knifePos.position;
                     weaponList[0].transform.rotation = knifePos.rotation;
                     weaponList[0].SetActive(true);
-
+                    _audioSource.PlayOneShot(_knifeDraw, 0.5f);
                     break;
                 case 2:
                     anim.SetBool("IsPistolEquip", true);
@@ -111,7 +119,7 @@ public class CharacterWeaponEquip : MonoBehaviour
                     weaponList[1].transform.position = pistolPos.position;
                     weaponList[1].transform.rotation = pistolPos.rotation;
                     weaponList[1].SetActive(true);
-
+                    _audioSource.PlayOneShot(_pistolCock, 0.5f);
                     break;
                 case 3:
                     anim.SetBool("IsPistolEquip", false);
@@ -122,7 +130,8 @@ public class CharacterWeaponEquip : MonoBehaviour
                     weaponList[2].transform.parent = riflePos.transform;
                     weaponList[2].transform.position = riflePos.position;
                     weaponList[2].transform.rotation = riflePos.rotation;
-                    weaponList[2].SetActive(true);                    
+                    weaponList[2].SetActive(true);
+                    _audioSource.PlayOneShot(_rifleLeverAction, 0.5f);
                     break;
             }
 
@@ -163,6 +172,7 @@ public class CharacterWeaponEquip : MonoBehaviour
                 rightHandIK.weight = 0f;
                 if (Input.GetMouseButtonDown(0) && item.actionType == Item.ActionType.Heal)
                 {
+                    _audioSource.PlayOneShot(_medKitBandage, 0.5f);
                     item = InventoryManager.instance.GetSelectedItem(true);
                     playerHealth.ReceiveHealth(item.countHealth);
 

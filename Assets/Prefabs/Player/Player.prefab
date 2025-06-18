@@ -2432,6 +2432,10 @@ MonoBehaviour:
   pistolIKLeftHandPos: {fileID: 6553254339657972627}
   rifleIKRightHandPos: {fileID: 190870302093037621}
   rifleIKLeftHandPos: {fileID: 7291064507788261901}
+  _knifeDraw: {fileID: 8300000, guid: 15383f0a457f22a4aa2bd3cd1ba7cf90, type: 3}
+  _pistolCock: {fileID: 8300000, guid: 0a6ce55b08701264f9092a94c29dd294, type: 3}
+  _rifleLeverAction: {fileID: 8300000, guid: 7246aa6a60c43694a82cde4847b20a2e, type: 3}
+  _medKitBandage: {fileID: 8300000, guid: a2c9afd52a498264b955347290ab1068, type: 3}
 --- !u!114 &7263606788758540147
 MonoBehaviour:
   m_ObjectHideFlags: 0
