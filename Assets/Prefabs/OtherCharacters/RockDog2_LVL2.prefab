@@ -290,7 +290,6 @@ GameObject:
   - component: {fileID: 6975094216016089160}
   - component: {fileID: 6181043953462572890}
   - component: {fileID: -7554680987262982339}
-  - component: {fileID: 5444770755165294285}
   - component: {fileID: 7427376360058593481}
   - component: {fileID: 7871729717581417498}
   m_Layer: 0
@@ -359,25 +358,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5838079, y: 0.5902909, z: 0.991526}
   m_Center: {x: -0.022570081, y: 0.4450545, z: 0.0858281}
---- !u!114 &5444770755165294285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435641913650076215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d595acf6509fb874baf08974ddc6c707, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  scoreValue: 0
-  isDead: 0
-  slider: {fileID: 0}
-  fillImage: {fileID: 0}
-  deathClip: {fileID: 0}
 --- !u!195 &7427376360058593481
 NavMeshAgent:
   m_ObjectHideFlags: 0

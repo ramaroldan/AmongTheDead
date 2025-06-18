@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class ProceduralForestGenerator : MonoBehaviour
     [SerializeField] List<GameObject> treePrefabs;
     [SerializeField] List<GameObject> rockPrefabs;
     [SerializeField] GameObject bossPrefab;
-    [SerializeField] GameObject groundPrefab; // <-- Nuevo campo para el ground
+    [SerializeField] GameObject groundPrefab; 
 
     [Header("Porcentaje de rocas (0 a 1)")]
     [Range(0f, 1f)]
@@ -24,9 +25,18 @@ public class ProceduralForestGenerator : MonoBehaviour
     [Header("Altura mínima del terreno (Y)")]
     [SerializeField] float terrainHeight = 0f;
 
+    [Header("Tiempo de reaparición del boss (segundos)")]
+    [SerializeField] float bossRespawnTime = 10f;
+
+    private GameObject currentBoss;
+
     void Start()
     {
         GenerateForest();
+        if (bossPrefab != null)
+        {
+            StartCoroutine(CheckBossRespawn());
+        }
     }
 
     void GenerateForest()
@@ -67,7 +77,7 @@ public class ProceduralForestGenerator : MonoBehaviour
         if (bossPrefab != null)
         {
             Vector3 bossPos = new Vector3(center.x, terrainHeight, center.z);
-            Instantiate(bossPrefab, bossPos, Quaternion.identity);
+            currentBoss = Instantiate(bossPrefab, bossPos, Quaternion.identity);
         }
     }
 
@@ -76,5 +86,21 @@ public class ProceduralForestGenerator : MonoBehaviour
         int index = Random.Range(0, prefabs.Count);
         GameObject obj = Instantiate(prefabs[index], position, Quaternion.Euler(0, Random.Range(0f, 360f), 0));
         obj.transform.parent = this.transform; // Agrupa todo bajo el generador
+    }
+
+    IEnumerator CheckBossRespawn()
+    {
+        Vector3 center = transform.position;
+        Vector3 bossPos = new Vector3(center.x, terrainHeight, center.z);
+
+        while (true)
+        {
+            if (currentBoss == null)
+            {
+                yield return new WaitForSeconds(bossRespawnTime);
+                currentBoss = Instantiate(bossPrefab, bossPos, Quaternion.identity);
+            }
+            yield return null;
+        }
     }
 }

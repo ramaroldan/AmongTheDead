@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject panelGameOver;
     [SerializeField] private MainCharacterMove _playerMove;
-    [SerializeField] private GameObject inventary;
 
     //blic TextMeshProUGUI findObjectiveText;
     public static GameManager Instance { get; private set; }
@@ -19,7 +18,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
-        
+
     }
 
     public void GameOver()
@@ -31,19 +30,12 @@ public class GameManager : MonoBehaviour
         foreach (var enemy in FindObjectsOfType<EnemyHealth>())
             Destroy(enemy.gameObject);
 
-
-        // Buscar el panel de Game Over por tag si no está asignado
+        // Mostrar el panel de Game Over
         if (panelGameOver == null)
         {
-            panelGameOver = GameObject.FindWithTag("panelGameOver");
-            if (panelGameOver == null)
-            {
-                Debug.LogError("Panel Game Over no asignado ni encontrado por tag en GameManager.");
-                return;
-            }
+            Debug.LogError("Panel Game Over no asignado en GameManager.");
+            return;
         }
-        inventary = GameObject.FindWithTag("Inventary");
-        inventary.SetActive(false);
         panelGameOver.SetActive(true);
     }
 
@@ -58,7 +50,7 @@ public class GameManager : MonoBehaviour
         // Cargar la siguiente escena por índice
         SceneManager.LoadScene(currentSceneIndex + 1);
         Invoke("ResetPlayerPosition", 5f);
-        
+
     }
 
     private void ResetPlayerPosition()
@@ -69,6 +61,6 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        
+
     }
 }
