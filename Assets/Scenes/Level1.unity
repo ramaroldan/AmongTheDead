@@ -2315,10 +2315,10 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1315893942941432840, guid: cd415a43747f0474480c2567bc1faaee,
     type: 3}
   parentEnemies: {fileID: 1963802156}
-  enemyCount: 30
+  enemyCount: 50
   medicalKitPrefab: {fileID: 905500992213887725, guid: d044e94e7391dfc4292f2a7fb2348d0c,
     type: 3}
-  medicalKitCount: 10
+  medicalKitCount: 15
   parentMedicalKits: {fileID: 584084730}
   finishMarker: {fileID: 1435641913650076215, guid: 23dbc6341a15ccd4d9632d66366f4e39,
     type: 3}
