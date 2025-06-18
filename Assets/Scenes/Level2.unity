@@ -2176,7 +2176,7 @@ MonoBehaviour:
     type: 3}
   rockChance: 0.3
   terrainHeight: 0
-  bossRespawnTime: 10
+  bossRespawnTime: 20
 --- !u!1001 &815960576
 PrefabInstance:
   m_ObjectHideFlags: 0

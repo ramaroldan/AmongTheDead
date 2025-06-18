@@ -16,7 +16,7 @@ public class ProceduralForestGenerator : MonoBehaviour
     [SerializeField] List<GameObject> treePrefabs;
     [SerializeField] List<GameObject> rockPrefabs;
     [SerializeField] GameObject bossPrefab;
-    [SerializeField] GameObject groundPrefab; 
+    [SerializeField] GameObject groundPrefab;
 
     [Header("Porcentaje de rocas (0 a 1)")]
     [Range(0f, 1f)]
@@ -25,7 +25,7 @@ public class ProceduralForestGenerator : MonoBehaviour
     [Header("Altura mínima del terreno (Y)")]
     [SerializeField] float terrainHeight = 0f;
 
-    [Header("Tiempo de reaparición del boss (segundos)")]
+    [Header("Tiempo de aparición/reaparición del boss (segundos)")]
     [SerializeField] float bossRespawnTime = 10f;
 
     private GameObject currentBoss;
@@ -35,7 +35,7 @@ public class ProceduralForestGenerator : MonoBehaviour
         GenerateForest();
         if (bossPrefab != null)
         {
-            StartCoroutine(CheckBossRespawn());
+            StartCoroutine(BossSpawnRoutine());
         }
     }
 
@@ -72,13 +72,6 @@ public class ProceduralForestGenerator : MonoBehaviour
                 }
             }
         }
-
-        // Crear jefe final en el centro del bosque
-        if (bossPrefab != null)
-        {
-            Vector3 bossPos = new Vector3(center.x, terrainHeight, center.z);
-            currentBoss = Instantiate(bossPrefab, bossPos, Quaternion.identity);
-        }
     }
 
     void InstantiateRandom(List<GameObject> prefabs, Vector3 position)
@@ -88,11 +81,17 @@ public class ProceduralForestGenerator : MonoBehaviour
         obj.transform.parent = this.transform; // Agrupa todo bajo el generador
     }
 
-    IEnumerator CheckBossRespawn()
+    IEnumerator BossSpawnRoutine()
     {
         Vector3 center = transform.position;
         Vector3 bossPos = new Vector3(center.x, terrainHeight, center.z);
 
+        // Espera antes de crear el boss por primera vez
+        yield return new WaitForSeconds(bossRespawnTime);
+
+        currentBoss = Instantiate(bossPrefab, bossPos, Quaternion.identity);
+
+        // Luego sigue comprobando para respawn
         while (true)
         {
             if (currentBoss == null)
