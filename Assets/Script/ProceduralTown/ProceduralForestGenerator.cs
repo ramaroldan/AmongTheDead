@@ -26,7 +26,7 @@ public class ProceduralForestGenerator : MonoBehaviour
     [SerializeField] float terrainHeight = 0f;
 
     [Header("Tiempo de aparición/reaparición del boss (segundos)")]
-    [SerializeField] float bossRespawnTime = 10f;
+    public float bossRespawnTime = 10f;
 
     private GameObject currentBoss;
 
