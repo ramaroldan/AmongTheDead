@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject panelGameOver;
     [SerializeField] private MainCharacterMove _playerMove;
-    [SerializeField] private GameObject inventary;
 
     //blic TextMeshProUGUI findObjectiveText;
     public static GameManager Instance { get; private set; }
@@ -19,7 +18,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
-        
+
     }
 
     public void GameOver()
@@ -37,10 +36,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Panel Game Over no asignado en GameManager.");
             return;
         }
-        inventary = GameObject.FindWithTag("Inventary");
-        inventary.SetActive(false);
         panelGameOver.SetActive(true);
-        
     }
 
 
@@ -54,7 +50,7 @@ public class GameManager : MonoBehaviour
         // Cargar la siguiente escena por índice
         SceneManager.LoadScene(currentSceneIndex + 1);
         Invoke("ResetPlayerPosition", 5f);
-        
+
     }
 
     private void ResetPlayerPosition()
@@ -65,6 +61,6 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        
+
     }
 }
