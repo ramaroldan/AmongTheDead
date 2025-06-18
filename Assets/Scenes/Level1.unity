@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5154,11 +5154,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1099135044776885742, guid: 932852c3d4169d440a8311d9797eac41,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7263606788758540147, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
       propertyPath: slider
@@ -5264,11 +5259,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4943320705650453409, guid: 1686ba5928b05d64e94f58cc21d1a6f0,
-        type: 3}
-      propertyPath: m_ImplicitCom
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1364704855717136, guid: 1686ba5928b05d64e94f58cc21d1a6f0, type: 3}
       propertyPath: m_Name
       value: WorldPistol
