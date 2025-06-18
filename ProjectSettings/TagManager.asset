@@ -9,6 +9,8 @@ TagManager:
   - Weapon
   - TransitionImage
   - Rock
+  - panelGameOver
+  - Inventary
   layers:
   - Default
   - TransparentFX

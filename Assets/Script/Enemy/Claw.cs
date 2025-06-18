@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
-    [SerializeField] int attackDamage; //danio del ataque
+    [SerializeField] private int attackDamage; //danio del ataque
     GameObject player;
     [SerializeField] EnemyAttack enemyAttack;
     PlayerHealth _playerHealth;

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
-        
+
     }
 
     public void GameOver()
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         // Cargar la siguiente escena por índice
         SceneManager.LoadScene(currentSceneIndex + 1);
         Invoke("ResetPlayerPosition", 5f);
-        
+
     }
 
     private void ResetPlayerPosition()
@@ -61,6 +61,6 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        
+
     }
 }

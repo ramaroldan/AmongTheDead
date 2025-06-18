@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 146923199}
   m_Layer: 5
   m_Name: PanelGameOver
-  m_TagString: Untagged
+  m_TagString: panelGameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2320,7 +2320,7 @@ MonoBehaviour:
     type: 3}
   medicalKitCount: 10
   parentMedicalKits: {fileID: 584084730}
-  finishMarker: {fileID: 6029364925086953252, guid: 9d854c7f7347fe940b580e6beabebb45,
+  finishMarker: {fileID: 1435641913650076215, guid: 23dbc6341a15ccd4d9632d66366f4e39,
     type: 3}
   groundPlane: {fileID: 460768471493027131, guid: 129329118b21f7d47b55123d2468f810,
     type: 3}
@@ -2985,8 +2985,8 @@ RectTransform:
   - {fileID: 2133574464}
   - {fileID: 500362689}
   - {fileID: 2017173088}
-  - {fileID: 146923196}
   - {fileID: 2016370880}
+  - {fileID: 146923196}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3759,7 +3759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1809905307
 Transform:
   m_ObjectHideFlags: 0
@@ -3984,7 +3984,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4299,7 +4299,7 @@ GameObject:
   - component: {fileID: 2016370881}
   m_Layer: 5
   m_Name: Toolbar
-  m_TagString: Untagged
+  m_TagString: Inventary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5154,6 +5154,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1099135044776885742, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7263606788758540147, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
       propertyPath: slider
