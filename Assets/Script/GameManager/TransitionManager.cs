@@ -52,6 +52,11 @@ public class TransitionScript : MonoBehaviour
         if (!fadeIn)
             canvasGroup.gameObject.SetActive(false);
     }
+
+    public void NextEscene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
 
 
