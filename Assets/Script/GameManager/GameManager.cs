@@ -59,8 +59,8 @@ public class GameManager : MonoBehaviour
         _playerMove.ResetPositionAndRotation();
     }
 
-    private void LateUpdate()
+    public void ObtainGOPanel(GameObject panel)
     {
-
+        panelGameOver = panel;
     }
 }

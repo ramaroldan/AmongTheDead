@@ -23,6 +23,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] AudioClip deathClip;
     [SerializeField] KnifeStab _knifeStab;
 
+    [Header("panelGameOver")]
+    [SerializeField] GameObject panelGameOver;
+
     //Player Components
     AudioSource audioS; //audio
     Animator anim; //animaciones
@@ -103,7 +106,9 @@ public class PlayerHealth : MonoBehaviour
         charWeaponEquip.UnEquip();
         _knifeStab.enabled = false;
         //Destroy(gameObject);
-        gameManager.GameOver();
+        //gameManager.GameOver(); // AAAAAAH ESTO ESTA MAAAAAL!!! HDPtaaaaa!!!!!
+        GameManager.Instance.ObtainGOPanel(panelGameOver);
+        GameManager.Instance.GameOver();
     }
 
     public void RestartLevel()
