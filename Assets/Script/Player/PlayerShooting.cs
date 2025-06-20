@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,13 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] float timeBetweenBullets; //Tiempo que tarda en disparar el jugador
     [SerializeField] float range; //Rango de disparo del jugador, longitud del raycast
     [SerializeField] LayerMask shooteableMask; //Capas que se pueden disparar
+
+    [Header("Cursors")]
+    [SerializeField] private Texture2D cursorTextureAim;
+    [SerializeField] private Texture2D cursorTextureHit;
+
+    private Vector2 cursorHotspot;
+
 
     [Header("UI section")]
     [SerializeField] HoverOver _hoverOverToolbar;
@@ -26,6 +34,8 @@ public class PlayerShooting : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         gunLight = GetComponent<Light>();
         audioS = GetComponent<AudioSource>();
+
+        cursorHotspot = new Vector2(cursorTextureAim.width/2, cursorTextureHit.height/2);
     }
 
     // Update is called once per frame
@@ -33,7 +43,9 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime; //Contador de tiempo
 
-        if (Input.GetMouseButtonDown(0) && timer >= timeBetweenBullets && (!_hoverOverToolbar.IsOverElement()))
+        ChangeCursor();
+        
+        if (Input.GetMouseButton(0) && timer >= timeBetweenBullets && (!_hoverOverToolbar.IsOverElement()))
         {
             Shoot();
         }
@@ -45,6 +57,19 @@ public class PlayerShooting : MonoBehaviour
             gunLight.enabled = false;
         }
         
+    }
+
+    private void ChangeCursor()
+    {
+        ray.origin= transform.position;
+        ray.direction= transform.forward;
+        if(Physics.Raycast(ray, out hit, 0.7f, shooteableMask))
+        {
+            Cursor.SetCursor(cursorTextureHit, cursorHotspot, CursorMode.Auto);
+        } else
+        {
+            Cursor.SetCursor(cursorTextureAim, cursorHotspot, CursorMode.Auto);
+        }
     }
 
     void Shoot()

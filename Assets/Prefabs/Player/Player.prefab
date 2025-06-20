@@ -116,6 +116,9 @@ MonoBehaviour:
   shooteableMask:
     serializedVersion: 2
     m_Bits: 128
+  cursorTextureAim: {fileID: 0}
+  cursorTextureHit: {fileID: 0}
+  _hoverOverToolbar: {fileID: 0}
 --- !u!120 &7260020337625419061
 LineRenderer:
   serializedVersion: 2
@@ -1153,6 +1156,21 @@ PrefabInstance:
     - target: {fileID: 4392049516594244, guid: cd89a223e5b83d94fa54a76c14c9c24d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443427962713027634, guid: cd89a223e5b83d94fa54a76c14c9c24d,
+        type: 3}
+      propertyPath: cursorTextureAim
+      value: 
+      objectReference: {fileID: 2800000, guid: 73a78c1720a8c1145b67f05214493f0a, type: 3}
+    - target: {fileID: 5443427962713027634, guid: cd89a223e5b83d94fa54a76c14c9c24d,
+        type: 3}
+      propertyPath: cursorTextureHit
+      value: 
+      objectReference: {fileID: 2800000, guid: 332b7985520a6f641b05bf46d86d0410, type: 3}
+    - target: {fileID: 5443427962713027634, guid: cd89a223e5b83d94fa54a76c14c9c24d,
+        type: 3}
+      propertyPath: timeBetweenBullets
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2436,6 +2454,7 @@ MonoBehaviour:
   _pistolCock: {fileID: 8300000, guid: 0a6ce55b08701264f9092a94c29dd294, type: 3}
   _rifleLeverAction: {fileID: 8300000, guid: 7246aa6a60c43694a82cde4847b20a2e, type: 3}
   _medKitBandage: {fileID: 8300000, guid: a2c9afd52a498264b955347290ab1068, type: 3}
+  _hoverOverToolbar: {fileID: 0}
 --- !u!114 &7263606788758540147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,6 +2794,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8623675690781735376}
     m_Modifications:
+    - target: {fileID: 3759221545136526292, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: cursorTextureAim
+      value: 
+      objectReference: {fileID: 2800000, guid: 73a78c1720a8c1145b67f05214493f0a, type: 3}
+    - target: {fileID: 3759221545136526292, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
+        type: 3}
+      propertyPath: cursorTextureHit
+      value: 
+      objectReference: {fileID: 2800000, guid: 332b7985520a6f641b05bf46d86d0410, type: 3}
     - target: {fileID: 3885484310585688831, guid: f1f0d5f838fc12547a3da5a0e4fe596e,
         type: 3}
       propertyPath: m_LocalScale.x

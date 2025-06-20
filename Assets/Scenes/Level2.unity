@@ -1762,8 +1762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331e44beb12842c43832a080bb8acb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingPanel: {fileID: 0}
-  loadingText: {fileID: 0}
+  loadingPanel: {fileID: 720676709}
+  loadingText: {fileID: 1375220303}
   displayTime: 5
 --- !u!4 &335851173
 Transform:
