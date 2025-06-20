@@ -9,6 +9,9 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] float range; //Rango de disparo del jugador, longitud del raycast
     [SerializeField] LayerMask shooteableMask; //Capas que se pueden disparar
 
+    [Header("UI section")]
+    [SerializeField] HoverOver _hoverOverToolbar;
+
     float timer; //Contador de tiempo
     Ray ray; //Rayo que dispara el jugador
     RaycastHit hit; //Objeto que se choca con el rayo
@@ -30,7 +33,7 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime; //Contador de tiempo
 
-        if (Input.GetMouseButtonDown(0) && timer >= timeBetweenBullets)
+        if (Input.GetMouseButtonDown(0) && timer >= timeBetweenBullets && (!_hoverOverToolbar.IsOverElement()))
         {
             Shoot();
         }

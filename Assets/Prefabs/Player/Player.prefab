@@ -2459,6 +2459,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   deathClip: {fileID: 8300000, guid: 1dc904b120aea44b58e588234674f5d7, type: 3}
   _knifeStab: {fileID: 1519274807497071309}
+  panelGameOver: {fileID: 0}
 --- !u!82 &8421347611660116703
 AudioSource:
   m_ObjectHideFlags: 0
