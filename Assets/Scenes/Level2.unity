@@ -4949,7 +4949,7 @@ PrefabInstance:
     - target: {fileID: 5144893836874647040, guid: e26f5e15b574c82498ddbecba0ef1c3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1435
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5144893836874647040, guid: e26f5e15b574c82498ddbecba0ef1c3e,
         type: 3}
@@ -5025,7 +5025,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375220301}
+  m_GameObject: {fileID: 1350979293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -5044,7 +5044,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375220301}
+  m_GameObject: {fileID: 1350979293}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -5133,7 +5133,7 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375220301}
+  m_GameObject: {fileID: 1350979293}
   m_CullTransparentMesh: 1
 --- !u!1 &1449189305
 GameObject:
