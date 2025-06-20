@@ -12,7 +12,10 @@ namespace SVS
         [SerializeField] GameObject enemyPrefab;
         [SerializeField] Transform parentEnemies;
         [SerializeField] int enemyCount = 5;
-        private List<GameObject> _enemyInstances = new List<GameObject>(); // Lista de control de instancias de enemigos
+        [SerializeField] float initialEnemySpawnDelay = 10f;
+        [SerializeField] float enemySpawnDelay = 5f;
+        private List<GameObject> _enemyInstances = new List<GameObject>();
+        private Coroutine enemySpawnCoroutine; 
 
         [Header("Kits Médicos")]
         [SerializeField] GameObject medicalKitPrefab;
@@ -22,11 +25,11 @@ namespace SVS
 
         [Header("SecondPlayer")]
         [SerializeField] GameObject finishMarker;
-        private GameObject _groundPlaneInstance; //instancia de Plane
+        private GameObject _groundPlaneInstance; 
 
         [Header("Ground")]
         [SerializeField] GameObject groundPlane;
-        private GameObject _finishMarkerInstance; //instancia de marca final
+        private GameObject _finishMarkerInstance;
 
         [Header("Map")]
         [SerializeField] LSystemGenerator lSystem;
@@ -148,10 +151,13 @@ namespace SVS
             yield return new WaitForSeconds(0.1f);
             roadHelper.FixRoad();
 
-            //SpawnPlayerAtStart();
             SpawnFinishZoneAtEnd();
             SpawnGroundPlane();
-            SpawnEnemies(roadHelper.GetRoadPositions());
+
+            if (enemySpawnCoroutine != null)
+                StopCoroutine(enemySpawnCoroutine);
+            enemySpawnCoroutine = StartCoroutine(EnemySpawnLoop());
+
             SpawnMedicalKits(roadHelper.GetRoadPositions());
 
             yield return new WaitForSeconds(0.8f);
@@ -161,12 +167,11 @@ namespace SVS
 
         private void SpawnFinishZoneAtEnd()
         {
-
-            // Obtiene la lista de posiciones de la carretera
+            // posiciones de las calles
             var roadPositions = roadHelper.GetRoadPositions();
             if (roadPositions == null || roadPositions.Count == 0)
             {
-                Debug.LogError("No hay posiciones de carretera para colocar la meta.");
+                Debug.LogError("No hay posiciones de calles para colocar la meta.");
                 return;
             }
 
@@ -174,7 +179,7 @@ namespace SVS
             Vector3Int last = roadPositions[roadPositions.Count - 1];
             Vector3 spawnPos = new Vector3(last.x, last.y, last.z);
 
-            // Instancia solo una vez
+            // Instancia
             if (_finishMarkerInstance == null)
             {
                 _finishMarkerInstance = Instantiate(finishMarker, spawnPos, Quaternion.identity);
@@ -239,7 +244,7 @@ namespace SVS
             while (list.Count < count && attempts < count * 10)
             {
                 attempts++;
-                // Elige una carretera al azar
+                // Elige una calle al azar
                 var roadPos = roadPositions[rnd.Next(roadPositions.Count)];
                 // Desplázate lateralmente 2 a 4 unidades
                 float offsetX = (float)(rnd.NextDouble() * 4 - 2);
@@ -261,6 +266,18 @@ namespace SVS
                     Destroy(e);
             }
             _enemyInstances.Clear();
+        }
+
+        private IEnumerator EnemySpawnLoop()
+        {
+            var roadPositions = roadHelper.GetRoadPositions();
+            yield return new WaitForSeconds(initialEnemySpawnDelay); // Espera inicial antes de la primera aparición
+
+            while (true)
+            {
+                SpawnEnemies(roadPositions);
+                yield return new WaitForSeconds(enemySpawnDelay);
+            }
         }
 
         private void SpawnMedicalKits(List<Vector3Int> roadPositions)
