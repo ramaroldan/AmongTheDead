@@ -3611,7 +3611,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1054536008}
   - component: {fileID: 1054536007}
-  - component: {fileID: 1054536009}
   m_Layer: 0
   m_Name: Visualizer
   m_TagString: Untagged
@@ -3664,32 +3663,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1054536009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054536006}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b12be348962181646a6e4dcbf077f9dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trafficLightPrefab: {fileID: 2118404135264616290, guid: 095d0d7cc0c77704b9c6b439d3826869,
-    type: 3}
-  lightPolePrefab: {fileID: 8912780160936368583, guid: e862a2795adc9564f92160c9ccf84f8f,
-    type: 3}
-  trashCanPrefab: {fileID: 2280167410418838165, guid: 3028e9edef244d648af9e8e5dc609fbb,
-    type: 3}
-  barrierPrefab: {fileID: 6251666189375065463, guid: d4f40363aa44ea649ac792f348b8c36a,
-    type: 3}
-  carPrefab: {fileID: 6844842462518608715, guid: e60560ca81fd1074f97a9525a0640ee9,
-    type: 3}
-  sideOffset: 2.5
-  lightPoleSpacing: 5
-  objectSpacing: 7
-  roadHelper: {fileID: 1788274552}
 --- !u!224 &1064492511 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1810263538463157433, guid: 7f7ce7c115bc8184d96691aff17639aa,
