@@ -48,6 +48,9 @@ public class CharacterWeaponEquip : MonoBehaviour
     [SerializeField] AudioClip _rifleLeverAction;
     [SerializeField] AudioClip _medKitBandage;
 
+    [Header("UI section")]
+    [SerializeField] HoverOver _hoverOverToolbar;
+
     int weaponSelector = 0;
     int weapontTemp = 0;
     // Start is called before the first frame update
@@ -146,7 +149,7 @@ public class CharacterWeaponEquip : MonoBehaviour
             case 1:
                 leftHandIK.weight = 0f;
                 rightHandIK.weight = 0f;
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && (!_hoverOverToolbar.IsOverElement()))
                 {
                     anim.SetTrigger("Stab");
                 }
@@ -170,7 +173,7 @@ public class CharacterWeaponEquip : MonoBehaviour
             case 4:
                 leftHandIK.weight = 0f;
                 rightHandIK.weight = 0f;
-                if (Input.GetMouseButtonDown(0) && item.actionType == Item.ActionType.Heal)
+                if (Input.GetMouseButtonDown(0) && item.actionType == Item.ActionType.Heal && (!_hoverOverToolbar.IsOverElement()))
                 {
                     _audioSource.PlayOneShot(_medKitBandage, 0.5f);
                     item = InventoryManager.instance.GetSelectedItem(true);

@@ -8,6 +8,7 @@ public class MenuPause : MonoBehaviour
 
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuQuit;
+    [SerializeField] GameObject Instructions;
     bool isPaused = false;
 
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class MenuPause : MonoBehaviour
 
                 Time.timeScale = 0;
                 Cursor.visible = true; //Muestra el cursor
-                                       // Cursor.lockState = CursorLockMode.None; //Desactiva el cursor
+                // Cursor.lockState = CursorLockMode.None; //Desactiva el cursor
 
                 /*AudioSource[] sounds = FindObjectsOfType<AudioSource>(); //Busca todos los sonidos
                 for (int i = 0; i < sounds.Length; i++)
@@ -51,6 +52,7 @@ public class MenuPause : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         Cursor.visible = false; //Oculta el cursor
+        Instructions.SetActive(false);
         // Cursor.lockState = CursorLockMode.Locked; //Activa el cursor
         
         /*AudioSource[] sounds = FindObjectsOfType<AudioSource>(); //Busca todos los sonidos
@@ -60,8 +62,14 @@ public class MenuPause : MonoBehaviour
         }*/
     }
 
+    public void Instruction()
+    {
+        Instructions.SetActive(!Instructions.activeSelf);
+    }
+
     public void BackToMenu()
     {
+        Instructions.SetActive(false);
         SceneManager.LoadScene("Menu");
     }
 

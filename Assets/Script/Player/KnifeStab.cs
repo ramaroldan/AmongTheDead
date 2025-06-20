@@ -11,6 +11,9 @@ public class KnifeStab : MonoBehaviour
     
     AudioSource audioS;
 
+    [Header("UI section")]
+    [SerializeField] HoverOver _hoverOverToolbar;
+
     private void Start()
     {
         audioS = GetComponent<AudioSource>();
@@ -19,7 +22,7 @@ public class KnifeStab : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && (!_hoverOverToolbar.IsOverElement()))
         {
             audioS.Play();
         }

@@ -25,7 +25,7 @@ public class MainCharacterMove : MonoBehaviour
 
     private void Awake()
     {
-        floorMask = LayerMask.GetMask("Floor"); //Busca el string piso
+        floorMask = LayerMask.GetMask("AimLayer"); //Busca el string piso
         anim = GetComponent<Animator>();
         playerRigibody = GetComponent<Rigidbody>();
     }
