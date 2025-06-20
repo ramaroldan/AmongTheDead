@@ -756,8 +756,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 161.62, y: -293.13004}
-  m_SizeDelta: {x: 930, y: 100}
+  m_AnchoredPosition: {x: 235, y: -293.13004}
+  m_SizeDelta: {x: 1050, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1013968040
 MonoBehaviour:
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Inventary = 1, 2, 3, 4, 5
+  m_text: 'Inventary = Scroll / 1-5
 
 '
   m_isRightToLeft: 0
