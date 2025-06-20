@@ -42,6 +42,20 @@ public class InventoryManager : MonoBehaviour
                 ChangeSelectedSlot(number - 1);
             }
         }
+        if(Input.mouseScrollDelta != null)
+        {
+            float mouseScroll = Input.mouseScrollDelta.y * 2;
+            
+            if(mouseScroll > 0 && selectedSlot >= 0 && selectedSlot < 4)
+            {
+                ChangeSelectedSlot(selectedSlot+1);
+            }
+            else if (mouseScroll < 0 && selectedSlot > 0 && selectedSlot < 5)
+            {
+                ChangeSelectedSlot(selectedSlot-1);
+            }
+            
+        }
     }
 
     private void LateUpdate()
