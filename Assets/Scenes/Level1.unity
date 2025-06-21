@@ -7172,7 +7172,8 @@ PrefabInstance:
       propertyPath: _hoverOverToolbar
       value: 
       objectReference: {fileID: 2016370884}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4820549665757230617, guid: 932852c3d4169d440a8311d9797eac41, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
