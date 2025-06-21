@@ -7,7 +7,9 @@ namespace SVS
 {
     public class StructureHelper : MonoBehaviour
     {
+        [Header("edificios")]
         public BuildingType[] buildingTypes;
+        [Header("naturaleza")]
         public GameObject[] naturePrefabs;
         public bool randomNaturePlacement = false;
         [Range(0, 1)] public float randomNaturePlacementThreshold = 0.3f;
