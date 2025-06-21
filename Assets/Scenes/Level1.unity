@@ -875,10 +875,6 @@ MonoBehaviour:
     sizeRequired: 1
     quantity: -1
     quantityAlreadyPlaced: 0
-  lightPostPrefab: {fileID: 8912780160936368583, guid: e862a2795adc9564f92160c9ccf84f8f,
-    type: 3}
-  lightPostOffset: {x: -0.5, y: 0, z: 0}
-  lightPostPlacementProbability: 0.5
   naturePrefabs:
   - {fileID: 3489192851198715285, guid: 6ce5d694780084341b1025650bdd432c, type: 3}
   - {fileID: 5716472912363847415, guid: dae355c214058de40833e1dc07b9568c, type: 3}
@@ -7185,7 +7181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392049516594244, guid: 1686ba5928b05d64e94f58cc21d1a6f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0959
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4392049516594244, guid: 1686ba5928b05d64e94f58cc21d1a6f0, type: 3}
       propertyPath: m_LocalPosition.z
