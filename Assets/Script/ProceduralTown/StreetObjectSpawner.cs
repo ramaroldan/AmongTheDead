@@ -6,99 +6,73 @@ namespace SVS
     public class StreetObjectSpawner : MonoBehaviour
     {
         [Header("Prefabs")]
-        public GameObject trafficLightPrefab; // Semáforo
-        public GameObject lightPolePrefab; // Palos de luz
-        public GameObject trashCanPrefab; // Tachos de basura
-        public GameObject barrierPrefab; // Barreras
-        public GameObject carPrefab; // Autos
+        public GameObject trafficLightPrefab;
+        public GameObject lightPolePrefab;
+        public GameObject trashCanPrefab;
+        public GameObject barrierPrefab;
+        public GameObject carPrefab;
 
         [Header("Configuración")]
-        public float sideOffset = 2.5f; // Distancia desde el centro de la calle al costado
-        public int lightPoleSpacing = 5; // Cada cuántos metros poner un palo de luz
-        public int objectSpacing = 7;    // Espaciado para otros objetos
+        public float sideOffset = 1.5f; // Distancia del borde de la calle para palos de luz
+        public float spawnProbability = 1f; // Para pruebas, instanciar siempre
 
         public RoadHelper roadHelper;
+        public StructureHelper structureHelper; // Referencia al StructureHelper
 
-        private void Start()
+        void Awake()
         {
             if (roadHelper == null)
             {
-                roadHelper = FindObjectOfType<RoadHelper>();
+                Debug.LogWarning("No se asignó RoadHelper en StreetObjectSpawner.");
+                return;
             }
+            roadHelper.finishedCoroutine += OnRoadGenerationFinished;
+        }
+
+        private void OnDestroy()
+        {
             if (roadHelper != null)
             {
-                roadHelper.finishedCoroutine += SpawnObjects;
+                roadHelper.finishedCoroutine -= OnRoadGenerationFinished;
             }
         }
 
-        public void SpawnObjects()
+        private void OnRoadGenerationFinished()
         {
-            if (roadHelper == null) return;
-
+            Debug.Log("OnRoadGenerationFinished llamado");
             List<Vector3Int> roadPositions = roadHelper.GetRoadPositions();
-            var roadSet = new HashSet<Vector3Int>(roadPositions);
-            int index = 0;
+            SpawnObjects(roadPositions);
+        }
 
-            foreach (var pos in roadPositions)
+        public void SpawnObjects(List<Vector3Int> roadPositions)
+        {
+            if (structureHelper != null)
             {
-                // Detectar la dirección principal de la calle en esta posición
-                List<Direction> directions = PlacementHelper.FindNeighbour(pos, roadSet);
+                Debug.Log("Cantidad de edificios: " + structureHelper.structuresDictionary.Count);
+                int count = 0;
+                foreach (var kvp in structureHelper.structuresDictionary)
+                {
+                    GameObject buildingObj = kvp.Value;
+                    Vector3 buildingWorldPos = buildingObj.transform.position;
+                    Quaternion buildingRot = buildingObj.transform.rotation;
 
-                // Por defecto, la calle va en X (horizontal)
-                Vector3 sideDir = Vector3.forward; // Z
-                if (directions.Count == 2)
-                {
-                    if ((directions.Contains(Direction.Up) && directions.Contains(Direction.Down)))
-                        sideDir = Vector3.right; // Calle vertical, costado en X
-                    else if ((directions.Contains(Direction.Left) && directions.Contains(Direction.Right)))
-                        sideDir = Vector3.forward; // Calle horizontal, costado en Z
-                    else if (directions.Contains(Direction.Up) && directions.Contains(Direction.Right))
-                        sideDir = (Vector3.left + Vector3.back).normalized;
-                    else if (directions.Contains(Direction.Right) && directions.Contains(Direction.Down))
-                        sideDir = (Vector3.left + Vector3.forward).normalized;
-                    else if (directions.Contains(Direction.Left) && directions.Contains(Direction.Down))
-                        sideDir = (Vector3.right + Vector3.forward).normalized;
-                    else if (directions.Contains(Direction.Left) && directions.Contains(Direction.Up))
-                        sideDir = (Vector3.right + Vector3.back).normalized;
-                }
-                else if (directions.Count == 1)
-                {
-                    // Calle termina, tomar dirección opuesta como costado
-                    if (directions.Contains(Direction.Up) || directions.Contains(Direction.Down))
-                        sideDir = Vector3.right;
-                    else
-                        sideDir = Vector3.forward;
-                }
+                    if (lightPolePrefab != null && Random.value < spawnProbability)
+                    {
+                        Debug.Log("Instanciando palo de luz");
+                        Vector3 rightOffset = buildingObj.transform.right * sideOffset;
+                        Vector3 posRight = buildingWorldPos + rightOffset;
+                        posRight.y = buildingWorldPos.y;
 
-                // Instanciar objetos sobre la calle
-                if (index % objectSpacing == 0)
-                {
-                    Instantiate(barrierPrefab, pos, Quaternion.identity, transform);
-                    Instantiate(carPrefab, pos + sideDir * 0.5f, Quaternion.identity, transform);
+                        var rightPole = Instantiate(lightPolePrefab, posRight, buildingRot, transform);
+                        Debug.Log($"Palo de luz instanciado en {posRight} con rotación {buildingRot.eulerAngles}");
+                        count++;
+                    }
                 }
-
-                // Instanciar palos de luz a los costados
-                if (index % lightPoleSpacing == 0)
-                {
-                    Vector3 leftSide = pos + Quaternion.Euler(0, 90, 0) * sideDir * sideOffset;
-                    Vector3 rightSide = pos + Quaternion.Euler(0, -90, 0) * sideDir * sideOffset;
-                    Instantiate(lightPolePrefab, leftSide, Quaternion.identity, transform);
-                    Instantiate(lightPolePrefab, rightSide, Quaternion.identity, transform);
-                }
-
-                // Instanciar tachos de basura y semáforos aleatoriamente a los costados
-                if (Random.value < 0.1f)
-                {
-                    Vector3 side = pos + ((Random.value > 0.5f ? 1 : -1) * (Quaternion.Euler(0, 90, 0) * sideDir) * sideOffset);
-                    Instantiate(trashCanPrefab, side, Quaternion.identity, transform);
-                }
-                if (Random.value < 0.05f)
-                {
-                    Vector3 side = pos + ((Random.value > 0.5f ? 1 : -1) * (Quaternion.Euler(0, 90, 0) * sideDir) * sideOffset);
-                    Instantiate(trafficLightPrefab, side, Quaternion.identity, transform);
-                }
-
-                index++;
+                Debug.Log($"Total de palos de luz instanciados: {count}");
+            }
+            else
+            {
+                Debug.LogWarning("No se asignó StructureHelper en StreetObjectSpawner.");
             }
         }
     }

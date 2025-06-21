@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4990415488547923876}
   - component: {fileID: 860397767632617605}
   - component: {fileID: 4248407806993702742}
+  - component: {fileID: -230789055611925407}
   m_Layer: 0
   m_Name: Env_Motel_04_1
   m_TagString: Untagged
@@ -77,6 +78,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.55, y: 1.15, z: 0.64}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-230789055611925407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8812919603007355074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f736c18c56c0e489ff63d6f52584e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireParticlePrefabs:
+  - {fileID: 5527566215270702436, guid: d8ab3fb5f1204814e97c703a18f8768e, type: 3}
+  - {fileID: 5445623511599894864, guid: 05572a6581413bd4389870fb36c12644, type: 3}
+  - {fileID: 8540782875185170677, guid: 633c3a67ad79a3545a6654dcdd0a383a, type: 3}
+  spawnProbability: 0.5
+  fireOffset: {x: -0.3, y: 0, z: 0}
+  particleSize: 1
 --- !u!1001 &7307214662438208985
 PrefabInstance:
   m_ObjectHideFlags: 0

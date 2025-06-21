@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6630714059616690025}
   - component: {fileID: -3049711580219426344}
   - component: {fileID: -1277927648342955000}
+  - component: {fileID: 3587569800579700835}
   m_Layer: 0
   m_Name: Env_ResidentBuilding_02_1
   m_TagString: Untagged
@@ -77,6 +78,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.61, y: 0.75, z: 0.66}
   m_Center: {x: -0.06, y: 0.35, z: -0.03}
+--- !u!114 &3587569800579700835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2211951031222207621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f736c18c56c0e489ff63d6f52584e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireParticlePrefabs:
+  - {fileID: 5527566215270702436, guid: d8ab3fb5f1204814e97c703a18f8768e, type: 3}
+  - {fileID: 5445623511599894864, guid: 05572a6581413bd4389870fb36c12644, type: 3}
+  - {fileID: 8540782875185170677, guid: 633c3a67ad79a3545a6654dcdd0a383a, type: 3}
+  spawnProbability: 0.5
+  fireOffset: {x: -0.3, y: 0, z: 0}
+  particleSize: 1
 --- !u!1001 &3083605831325470234
 PrefabInstance:
   m_ObjectHideFlags: 0
