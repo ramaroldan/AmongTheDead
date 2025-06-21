@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6176145211343690225}
   - component: {fileID: 8367150908355091056}
+  - component: {fileID: 6752899970615391716}
   m_Layer: 0
   m_Name: ambulance 2
   m_TagString: Untagged
@@ -276,7 +277,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1010530005805212715}
@@ -325,6 +326,27 @@ LODGroup:
     - renderer: {fileID: 6742009007909410211}
     - renderer: {fileID: 4620911338463583424}
   m_Enabled: 1
+--- !u!65 &6752899970615391716
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6844842462518608715}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1.8, z: 6}
+  m_Center: {x: 0, y: 1, z: -0.74}
 --- !u!1 &6955107847619784730
 GameObject:
   m_ObjectHideFlags: 0

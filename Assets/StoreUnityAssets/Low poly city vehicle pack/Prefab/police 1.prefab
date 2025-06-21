@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1781986432116295117}
   - component: {fileID: 2441397195927698916}
+  - component: {fileID: 3458390306986762332}
   m_Layer: 0
   m_Name: police 1
   m_TagString: Untagged
@@ -110,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4830937160593045527}
@@ -159,6 +160,27 @@ LODGroup:
     - renderer: {fileID: 1197004327234423199}
     - renderer: {fileID: 949193055497814268}
   m_Enabled: 1
+--- !u!65 &3458390306986762332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436986498572083063}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1.46, z: 4.3}
+  m_Center: {x: 0.09, y: 0.67, z: -0.33}
 --- !u!1 &3281278958668999718
 GameObject:
   m_ObjectHideFlags: 0
