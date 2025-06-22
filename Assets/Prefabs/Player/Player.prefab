@@ -1904,6 +1904,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1099135044776885742}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f768d0c99b737344abbbcc043443bfe0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4797171970863640185}
   m_SourcePrefab: {fileID: 100100000, guid: f768d0c99b737344abbbcc043443bfe0, type: 3}
 --- !u!4 &211317295684548456 stripped
 Transform:
@@ -2709,6 +2713,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00307610102bcb47af7a34b35994be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4797171970863640185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910107485480943670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e805eafb2a4ff48b07c77cd97bccf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 40
+  currentStamina: 0
+  staminaDrain: 50
+  staminaRegen: 5
+  regenDelay: 1
+  staminaSlider: {fileID: 0}
 --- !u!4 &7940980289415698354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1095279095686458069, guid: f768d0c99b737344abbbcc043443bfe0,
