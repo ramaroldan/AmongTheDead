@@ -58,7 +58,7 @@ public class MainCharacterMove : MonoBehaviour
         }
     }
 
-    private void Move(float horiz, float vert, float currentSpeed)
+    /*private void Move(float horiz, float vert, float currentSpeed)
     {
         movement = new Vector3(horiz, 0, vert);
 
@@ -74,6 +74,36 @@ public class MainCharacterMove : MonoBehaviour
             // si el movimiento es <0 implica que nos movemos hacia atras y lo haremos mas lento (speed/2)
             movement = playerRotation * movement.normalized * currentSpeed / 2 * Time.deltaTime;
         } else // movimiento solamente en horizontal lo haremos mas lento (speed/2)
+        {
+            movement = playerRotation * movement.normalized * currentSpeed / 2 * Time.deltaTime;
+        }
+        playerRigibody.MovePosition(transform.position + movement);
+    }*/
+
+    private void Move(float horiz, float vert, float currentSpeed)
+    {
+        // Detectar si el personaje está mirando hacia abajo (sur global)
+        Vector3 forward = playerRotation * Vector3.forward;
+        bool mirandoAbajo = forward.z < -0.5f;
+
+        // Si está mirando hacia abajo, invertir el eje horizontal
+        float horizMod = horiz;
+        if (mirandoAbajo)
+        {
+            horizMod = -horiz;
+        }
+
+        movement = new Vector3(horizMod, 0, vert);
+
+        if (vert > 0)
+        {
+            movement = playerRotation * movement.normalized * currentSpeed * Time.deltaTime;
+        }
+        else if (vert < 0)
+        {
+            movement = playerRotation * movement.normalized * currentSpeed / 2 * Time.deltaTime;
+        }
+        else
         {
             movement = playerRotation * movement.normalized * currentSpeed / 2 * Time.deltaTime;
         }
