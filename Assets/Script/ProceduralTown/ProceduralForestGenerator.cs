@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ProceduralForestGenerator : MonoBehaviour
 {
+    [Header("Perro")]
+    [SerializeField] GameObject dogPrefab;
+    [SerializeField] Vector3 dogOffset = Vector3.zero;
+
     [Header("Zona de generación")]
     [SerializeField] int width = 50;
     [SerializeField] int depth = 50;
@@ -27,7 +31,6 @@ public class ProceduralForestGenerator : MonoBehaviour
 
     [Header("Tiempo de aparición/reaparición del boss (segundos)")]
     public float bossRespawnTime = 10f;
-
     private GameObject currentBoss;
 
     void Start()
@@ -55,11 +58,22 @@ public class ProceduralForestGenerator : MonoBehaviour
             ground.transform.localScale = new Vector3(scaleX, 1, scaleZ);
         }
 
+        // Instanciar el perro en el centro con offset opcional
+        if (dogPrefab != null)
+        {
+            Vector3 dogSpawnPos = new Vector3(center.x, terrainHeight, center.z) + dogOffset;
+            Instantiate(dogPrefab, dogSpawnPos, Quaternion.identity, this.transform);
+        }
+
         for (float x = -width / 2f; x < width / 2f; x += spacing)
         {
             for (float z = -depth / 2f; z < depth / 2f; z += spacing)
             {
                 Vector3 pos = new Vector3(center.x + x, terrainHeight, center.z + z);
+
+                // Evitar instanciar en la posición (0, terrainHeight, 0)
+                if (Mathf.Approximately(pos.x, 0f) && Mathf.Approximately(pos.z, 0f))
+                    continue;
 
                 float chance = Random.value;
                 if (chance < rockChance && rockPrefabs.Count > 0)
