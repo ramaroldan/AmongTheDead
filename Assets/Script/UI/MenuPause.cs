@@ -51,7 +51,7 @@ public class MenuPause : MonoBehaviour
         menuQuit.SetActive(false);
         isPaused = false;
         Time.timeScale = 1;
-        Cursor.visible = false; //Oculta el cursor
+        //Cursor.visible = false; //Oculta el cursor
         Instructions.SetActive(false);
         // Cursor.lockState = CursorLockMode.Locked; //Activa el cursor
         
@@ -69,6 +69,7 @@ public class MenuPause : MonoBehaviour
 
     public void BackToMenu()
     {
+        ResumeGame();
         Instructions.SetActive(false);
         SceneManager.LoadScene("Menu");
     }
