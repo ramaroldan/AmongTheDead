@@ -6546,6 +6546,12 @@ MonoBehaviour:
   road3Way: {fileID: 1620257504667244, guid: f1888b6d87b131e4fad214b3450d515f, type: 3}
   road4Way: {fileID: 1620257504667244, guid: f1888b6d87b131e4fad214b3450d515f, type: 3}
   roadEnd: {fileID: 1620257504667244, guid: f1888b6d87b131e4fad214b3450d515f, type: 3}
+  carPrefabs: []
+  carSpawnProbability: 0.3
+  carOffset: {x: 0, y: 0.1, z: 0}
+  carRandomRange: {x: -0.3, y: 0.3}
+  carRotationOffset: {x: 0, y: 0, z: 0}
+  streetObjects: []
   animationTime: 0
 --- !u!4 &1788274553
 Transform:
