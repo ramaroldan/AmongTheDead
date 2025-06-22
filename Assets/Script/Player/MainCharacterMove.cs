@@ -15,6 +15,8 @@ public class MainCharacterMove : MonoBehaviour
     //bool walking = false;
     //bool walkingBackwards = false;
 
+    private StaminaSystem staminaSystem;
+
     int floorMask;
     float camRayLength = 100f; //Distancia de la camara
 
@@ -28,6 +30,7 @@ public class MainCharacterMove : MonoBehaviour
         floorMask = LayerMask.GetMask("AimLayer"); //Busca el string piso
         anim = GetComponent<Animator>();
         playerRigibody = GetComponent<Rigidbody>();
+        staminaSystem = GetComponent<StaminaSystem>();
     }
 
     private void FixedUpdate()
@@ -49,11 +52,14 @@ public class MainCharacterMove : MonoBehaviour
 
     private float Run(float vert)
     {
-        if(Input.GetKey(KeyCode.LeftShift) && vert > 0 && horiz ==0)
+        if (Input.GetKey(KeyCode.LeftShift) && vert > 0 && horiz == 0 && staminaSystem.CanRun)
         {
+            staminaSystem.UseStamina();
             return runSpeed;
-        } else
+        }
+        else
         {
+            staminaSystem.StopRunning();
             return speed;
         }
     }

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 1781986432116295117}
   - component: {fileID: 2441397195927698916}
   - component: {fileID: 3458390306986762332}
+  - component: {fileID: -1360830290944559901}
   m_Layer: 0
   m_Name: police 1
   m_TagString: Untagged
@@ -181,6 +182,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1.46, z: 4.3}
   m_Center: {x: 0.09, y: 0.67, z: -0.33}
+--- !u!114 &-1360830290944559901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436986498572083063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f736c18c56c0e489ff63d6f52584e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireParticlePrefabs:
+  - {fileID: 5527566215270702436, guid: d8ab3fb5f1204814e97c703a18f8768e, type: 3}
+  spawnProbability: 0.5
+  fireOffset: {x: 0, y: 0, z: 0}
+  particleSize: 0.3
 --- !u!1 &3281278958668999718
 GameObject:
   m_ObjectHideFlags: 0
