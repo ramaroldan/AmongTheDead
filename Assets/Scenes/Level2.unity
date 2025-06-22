@@ -4653,7 +4653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPause: {fileID: 457403027}
   menuQuit: {fileID: 1153431285}
-  Instructions: {fileID: 0}
+  Instructions: {fileID: 1480590980}
 --- !u!114 &1137583792
 MonoBehaviour:
   m_ObjectHideFlags: 0
