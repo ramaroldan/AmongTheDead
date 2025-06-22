@@ -7,6 +7,17 @@ using UnityEngine.Rendering;
 
 namespace SVS
 {
+    [Serializable]
+    public class StreetObjectConfig
+    {
+        public string name;
+        public List<GameObject> prefabs;
+        [Range(0, 1)] public float spawnProbability = 0.3f;
+        public Vector3 offset = Vector3.zero;
+        public Vector2 randomRange = Vector2.zero;
+        public Vector3 rotationOffset = Vector3.zero;
+    }
+
     public class RoadHelper : MonoBehaviour
     {
         public Action finishedCoroutine;
@@ -23,6 +34,9 @@ namespace SVS
         [SerializeField] Vector3 carOffset = new Vector3(0, 0.1f, 0);
         [SerializeField] Vector2 carRandomRange = new Vector2(-0.3f, 0.3f);
         [SerializeField] Vector3 carRotationOffset = Vector3.zero; // Offset de rotación en grados
+
+        [Header("Objetos de calle")]
+        [SerializeField] List<StreetObjectConfig> streetObjects;
 
         public float animationTime = 0.01f;
 
@@ -57,10 +71,18 @@ namespace SVS
                     fixRoadCandidates.Add(position);
                 }
 
-                // Instanciar autos con probabilidad, excepto en la última calle
-                if (i != lenght - 1)
+                // Instanciar autos y objetos de calle solo si NO es la última calle
+                if (i < lenght - 1)
                 {
                     TrySpawnCar(position, rotation);
+
+                    if (streetObjects != null)
+                    {
+                        foreach (var config in streetObjects)
+                        {
+                            TrySpawnStreetObject(config, position, rotation);
+                        }
+                    }
                 }
 
                 yield return new WaitForSeconds(animationTime);
@@ -86,6 +108,21 @@ namespace SVS
             Quaternion finalRotation = roadRotation * Quaternion.Euler(carRotationOffset);
 
             Instantiate(carPrefab, spawnPos, finalRotation, transform);
+        }
+
+        // Método para instanciar objetos de calle genéricos
+        void TrySpawnStreetObject(StreetObjectConfig config, Vector3Int roadPosition, Quaternion roadRotation)
+        {
+            if (config.prefabs == null || config.prefabs.Count == 0) return;
+            if (UnityEngine.Random.value > config.spawnProbability) return;
+
+            var prefab = config.prefabs[UnityEngine.Random.Range(0, config.prefabs.Count)];
+            float offsetX = UnityEngine.Random.Range(config.randomRange.x, config.randomRange.y);
+            float offsetZ = UnityEngine.Random.Range(config.randomRange.x, config.randomRange.y);
+            Vector3 spawnPos = (Vector3)roadPosition + config.offset + new Vector3(offsetX, 0, offsetZ);
+            Quaternion finalRotation = roadRotation * Quaternion.Euler(config.rotationOffset);
+
+            Instantiate(prefab, spawnPos, finalRotation, transform);
         }
 
         public void FixRoad()

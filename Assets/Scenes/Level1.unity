@@ -5461,6 +5461,26 @@ MonoBehaviour:
   carOffset: {x: 0, y: 0, z: 0}
   carRandomRange: {x: -0.3, y: 0.3}
   carRotationOffset: {x: 0, y: 90, z: 0}
+  streetObjects:
+  - name: Tachos
+    prefabs:
+    - {fileID: 2280167410418838165, guid: 3028e9edef244d648af9e8e5dc609fbb, type: 3}
+    spawnProbability: 0.3
+    offset: {x: -0.4, y: 0, z: 0}
+    randomRange: {x: 0, y: 0}
+    rotationOffset: {x: 0, y: 0, z: 0}
+  - name: Transito
+    prefabs:
+    - {fileID: 6251666189375065463, guid: d4f40363aa44ea649ac792f348b8c36a, type: 3}
+    - {fileID: 2051354519210185303, guid: bd54396f614833c4aac609531580219e, type: 3}
+    - {fileID: 4653403327844854724, guid: 5477dc01225ea3847957b7de03880b44, type: 3}
+    - {fileID: 4311010213305465634, guid: 84062c9556b3cef4f8aa9a210cba155b, type: 3}
+    - {fileID: 4723734513448391919, guid: e3d1d514935b8c44b9d50eb75b1cccd4, type: 3}
+    - {fileID: 559993727811554497, guid: 3a5df9f18409e7c439c513e6d67a378c, type: 3}
+    spawnProbability: 0.3
+    offset: {x: 0, y: 0, z: 0}
+    randomRange: {x: -0.3, y: 0.3}
+    rotationOffset: {x: 0, y: 0, z: 0}
   animationTime: 0
 --- !u!4 &1788274553
 Transform:
