@@ -70,7 +70,6 @@ public class MenuPause : MonoBehaviour
     public void BackToMenu()
     {
         ResumeGame();
-        Instructions.SetActive(false);
         SceneManager.LoadScene("Menu");
     }
 
