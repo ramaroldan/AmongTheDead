@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 830221952330604752}
   - component: {fileID: 868969375306663715}
+  - component: {fileID: 520328497635337531}
   m_Layer: 0
   m_Name: sport car 4
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5779673585356365066}
@@ -76,6 +77,27 @@ LODGroup:
     - renderer: {fileID: 262321860079250562}
     - renderer: {fileID: 2167180635943806433}
   m_Enabled: 1
+--- !u!65 &520328497635337531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58083742179523178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.78, y: 1.29, z: -4.7}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &1332970842297047617
 GameObject:
   m_ObjectHideFlags: 0

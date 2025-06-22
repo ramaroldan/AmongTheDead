@@ -6180,11 +6180,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldRifle
       objectReference: {fileID: 0}
-    - target: {fileID: 4020727227927611999, guid: 4443d706623d66d4995dfa4741b70383,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
