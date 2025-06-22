@@ -54,7 +54,10 @@ public class GameManager : MonoBehaviour
 
     private void ResetPlayerPosition()
     {
-        _playerMove = FindObjectOfType<MainCharacterMove>();
+        if (_playerMove == null)
+        {
+            _playerMove = FindObjectOfType<MainCharacterMove>();
+        }
         _playerMove.ResetPositionAndRotation();
     }
 
