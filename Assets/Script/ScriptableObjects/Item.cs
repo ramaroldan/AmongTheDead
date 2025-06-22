@@ -12,6 +12,7 @@ public class Item : ScriptableObject
     public ItemType type;
     public ActionType actionType;
     public float countHealth;
+    public float damage;
     //public Vector2Int range = new Vector2Int(5,4);
 
     [Header("Only UI")]
@@ -25,13 +26,15 @@ public class Item : ScriptableObject
         Knife,
         Pistol,
         Rifle,
-        MedKit
+        MedKit,
+        Grenade
     }
 
     public enum ActionType
     {
         Stab,
         Shoot,
-        Heal
+        Heal,
+        Throw
     }
 }
