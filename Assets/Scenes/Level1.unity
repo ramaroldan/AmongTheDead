@@ -5450,6 +5450,37 @@ MonoBehaviour:
   road4Way: {fileID: 7186611593404455177, guid: 9123a496f00e31842b80b49e7b41ac8b,
     type: 3}
   roadEnd: {fileID: 867190217525862037, guid: 7be5369fc275971458de9b7f2505e630, type: 3}
+  carPrefabs:
+  - {fileID: 6844842462518608715, guid: e60560ca81fd1074f97a9525a0640ee9, type: 3}
+  - {fileID: 1436986498572083063, guid: aca6d559aadf856478dd2a1e2822667d, type: 3}
+  - {fileID: 3469224539317172945, guid: 5d17e6951ed99e240a7255846db7fddc, type: 3}
+  - {fileID: 58083742179523178, guid: 573315d9e2fc27b49a657499605cf249, type: 3}
+  - {fileID: 5645700414978238934, guid: 273dc1cc8a817584ba880ad7eabfbe71, type: 3}
+  - {fileID: 1185355848804559801, guid: 48de7196dbfd67f4fb38c1e253dcb955, type: 3}
+  carSpawnProbability: 0.4
+  carOffset: {x: 0, y: 0, z: 0}
+  carRandomRange: {x: -0.3, y: 0.3}
+  carRotationOffset: {x: 0, y: 90, z: 0}
+  streetObjects:
+  - name: Tachos
+    prefabs:
+    - {fileID: 2280167410418838165, guid: 3028e9edef244d648af9e8e5dc609fbb, type: 3}
+    spawnProbability: 0.3
+    offset: {x: -0.4, y: 0, z: 0}
+    randomRange: {x: 0, y: 0}
+    rotationOffset: {x: 0, y: 0, z: 0}
+  - name: Transito
+    prefabs:
+    - {fileID: 6251666189375065463, guid: d4f40363aa44ea649ac792f348b8c36a, type: 3}
+    - {fileID: 2051354519210185303, guid: bd54396f614833c4aac609531580219e, type: 3}
+    - {fileID: 4653403327844854724, guid: 5477dc01225ea3847957b7de03880b44, type: 3}
+    - {fileID: 4311010213305465634, guid: 84062c9556b3cef4f8aa9a210cba155b, type: 3}
+    - {fileID: 4723734513448391919, guid: e3d1d514935b8c44b9d50eb75b1cccd4, type: 3}
+    - {fileID: 559993727811554497, guid: 3a5df9f18409e7c439c513e6d67a378c, type: 3}
+    spawnProbability: 0.3
+    offset: {x: 0, y: 0, z: 0}
+    randomRange: {x: -0.3, y: 0.3}
+    rotationOffset: {x: 0, y: 0, z: 0}
   animationTime: 0
 --- !u!4 &1788274553
 Transform:
@@ -7055,6 +7086,12 @@ PrefabInstance:
       propertyPath: _hoverOverToolbar
       value: 
       objectReference: {fileID: 2016370884}
+    - target: {fileID: 7159064660864319681, guid: 932852c3d4169d440a8311d9797eac41,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e13ef3604b4c79543bd199885cac0920,
+        type: 2}
     - target: {fileID: 7263606788758540147, guid: 932852c3d4169d440a8311d9797eac41,
         type: 3}
       propertyPath: slider
@@ -7145,7 +7182,8 @@ PrefabInstance:
       propertyPath: _hoverOverToolbar
       value: 
       objectReference: {fileID: 2016370884}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4820549665757230617, guid: 932852c3d4169d440a8311d9797eac41, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7180,7 +7218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392049516594244, guid: 1686ba5928b05d64e94f58cc21d1a6f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0959
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4392049516594244, guid: 1686ba5928b05d64e94f58cc21d1a6f0, type: 3}
       propertyPath: m_LocalPosition.z

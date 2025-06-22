@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6740113937304721357}
+  - component: {fileID: 7695696959644584944}
   m_Layer: 0
   m_Name: RoadBarrier-1
   m_TagString: Untagged
@@ -201,6 +202,27 @@ Transform:
   - {fileID: 5255591175765463432}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7695696959644584944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6251666189375065463}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.42, y: 0.98, z: 0.51}
+  m_Center: {x: 0, y: 0.44, z: 0}
 --- !u!1 &7328177842769079452
 GameObject:
   m_ObjectHideFlags: 0

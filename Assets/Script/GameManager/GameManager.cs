@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        // Pausar el juego
-        //Time.timeScale = 0f;
 
         // Destruir todos los enemigos 
         foreach (var enemy in FindObjectsOfType<EnemyHealth>())
@@ -45,7 +43,6 @@ public class GameManager : MonoBehaviour
     /// Calcula el índice de la siguiente escena en BuildSettings y la arranca con transición.
     public void LoadNextScene()
     {
-        //findObjectiveText.text = "Find Your Wife Elena";
         // Obtener el índice de la escena actual
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 

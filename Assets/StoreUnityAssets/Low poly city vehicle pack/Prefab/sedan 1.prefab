@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4282635151615271019}
   - component: {fileID: 2191564571597877460}
+  - component: {fileID: 6559802338343518037}
   m_Layer: 0
   m_Name: sedan 1
   m_TagString: Untagged
@@ -276,7 +277,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6980285911189380529}
@@ -325,6 +326,27 @@ LODGroup:
     - renderer: {fileID: 3695352868607585337}
     - renderer: {fileID: 3384504336172033370}
   m_Enabled: 1
+--- !u!65 &6559802338343518037
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3469224539317172945}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.69, y: 1.26, z: 4.26}
+  m_Center: {x: 0, y: 0.69, z: 0}
 --- !u!1 &4925652737470079126
 GameObject:
   m_ObjectHideFlags: 0

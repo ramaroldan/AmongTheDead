@@ -101,24 +101,23 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         //anim.SetTrigger("Death");
 
-        mainCharacterMove.enabled = false; //desactivamos el movimiento
-        //playerShooting.enabled = false; //desactivamos el disparo
+        mainCharacterMove.enabled = false; 
+        //playerShooting.enabled = false; 
         charWeaponEquip.UnEquip();
         _knifeStab.enabled = false;
         //Destroy(gameObject);
-        //gameManager.GameOver(); // AAAAAAH ESTO ESTA MAAAAAL!!! HDPtaaaaa!!!!!
         GameManager.Instance.ObtainGOPanel(panelGameOver);
         GameManager.Instance.GameOver();
     }
 
     public void RestartLevel()
     {
-        gameManager.GameOver(); //llamamos al GameOver del GameManager
+        gameManager.GameOver(); 
     }
 
     public void ReceiveHealth(float amount) //recibe la curacion
     {
-        if (isDead) return; //si el jugador esta muerto, salgo de la funcion
+        if (isDead) return; 
         currentHealth += amount; //suma la curacion a la vida actual
         if (currentHealth > maxHealth) currentHealth = maxHealth; //si la vida actual es mayor a la vida maxima, la iguala
         slider.value = currentHealth; //actualiza la barra de vida
