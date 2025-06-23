@@ -213,6 +213,14 @@ public class CharacterWeaponEquip : MonoBehaviour
             case 5:
                 leftHandIK.weight = 0f;
                 rightHandIK.weight = 0f;
+                if (Input.GetMouseButtonUp(0) && item.actionType == Item.ActionType.Throw && (!_hoverOverToolbar.IsOverElement()))
+                {
+                    // play audio clip
+                    item = InventoryManager.instance.GetSelectedItem(true);
+                    // other actions
+                    anim.SetTrigger("ThrowGrenade");
+
+                }
 
                 break;
         }

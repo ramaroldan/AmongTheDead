@@ -81,38 +81,20 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 3e446f987c16c1c49b26399de3f8ba0c,
         type: 3}
       propertyPath: m_Name
-      value: GrenadeInPlayer
+      value: Grenade_M67
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3e446f987c16c1c49b26399de3f8ba0c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3e446f987c16c1c49b26399de3f8ba0c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 3e446f987c16c1c49b26399de3f8ba0c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -8261647078632210518}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e446f987c16c1c49b26399de3f8ba0c, type: 3}
---- !u!1 &4112006768714610851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 3e446f987c16c1c49b26399de3f8ba0c,
-    type: 3}
-  m_PrefabInstance: {fileID: 5346095227141824938}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &-8261647078632210518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4112006768714610851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90df8694ef420c47a53bf46e36ea23b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionEffectPrefab: {fileID: 3352391191284423565, guid: 9571e0e1b1e65834cbba759493c171d3,
-    type: 3}
-  explosionParticleOffset: {x: 0, y: 0.5, z: 0}
-  explosionDelay: 3
-  explosionForce: 10
-  explosionRadius: 2
