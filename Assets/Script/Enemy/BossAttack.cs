@@ -15,12 +15,26 @@ public class BossAttack : MonoBehaviour
     bool playerInRange; //bool para saber si el player esta en rango
     float timer; //tiempo
 
+    [SerializeField] AudioClip aClip;
+    [SerializeField] AudioClip nextClip;
+    AudioSource audioS;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent<Animator>();
+        audioS = GetComponent<AudioSource>();
+        StartCoroutine(PlayClipAndChange());
+    }
+
+    IEnumerator PlayClipAndChange()
+    {
+        audioS.clip = aClip;
+        audioS.Play();
+        yield return new WaitForSeconds(aClip.length);
+        audioS.clip = nextClip;
     }
 
     private void Update()
@@ -53,7 +67,6 @@ public class BossAttack : MonoBehaviour
         Animating();
         timer = 0;
         //playerHealth.TakeDamage(attackDamage); //le hacemos danio al player
-
     }
 
     void Animating()
