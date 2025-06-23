@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,9 @@ public class CharacterWeaponEquip : MonoBehaviour
     [Header("Grenade force")]
     [SerializeField] private float throwForce = 5.0f; // force applied to throw the grenade
     [SerializeField] private float maxForce = 30.0f; // maximum force applied to throw the grenade
+
+    [Header("Trajectory settings")]
+    [SerializeField] private LineRenderer trajectoryLine; // reference to the LineRenderer component
 
     [Header("Right Hand Target")]
     [SerializeField] private TwoBoneIKConstraint rightHandIK;
@@ -72,6 +76,7 @@ public class CharacterWeaponEquip : MonoBehaviour
         anim = GetComponent<Animator>();
         playerHealth= GetComponent<PlayerHealth>();
         _audioSource = GetComponent<AudioSource>();
+        trajectoryLine = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -270,14 +275,27 @@ public class CharacterWeaponEquip : MonoBehaviour
         isCharging = true;
         chargeTime = 0f;
 
-        //Trajectory line
+        trajectoryLine.enabled = true;
     }
 
     void ChargeThrow()
     {
         chargeTime += Time.deltaTime;
 
-        //trajectory line velocity
+        Vector3 grenadeVelocity = ((throwPosition.transform.forward + throwDirection).normalized * Mathf.Min((1+chargeTime) * throwForce, maxForce));
+        ShowTrajectory(throwPosition.position, grenadeVelocity);
+    }
+
+    private void ShowTrajectory(Vector3 origin, Vector3 speed)
+    {
+        Vector3[] points = new Vector3[50];
+        trajectoryLine.positionCount = points.Length;
+        for(int i=0; i < points.Length; i++)
+        {
+            float time = i * 0.05f;
+            points[i] = origin + speed * time + 0.5f * Physics.gravity * time * time;
+        }
+        trajectoryLine.SetPositions(points);
     }
 
     void ReleaseThrow()
@@ -287,7 +305,7 @@ public class CharacterWeaponEquip : MonoBehaviour
         isCharging = false;
         CalculateForce();
 
-        //hide line
+        trajectoryLine.enabled = false;
     }
 
     void CalculateForce()
@@ -302,7 +320,7 @@ public class CharacterWeaponEquip : MonoBehaviour
 
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
 
-        Vector3 finalThrowDirection = (throwPosition.transform.forward + throwDirection);
+        Vector3 finalThrowDirection = (throwPosition.transform.forward + throwDirection).normalized;
         rb.AddForce(finalThrowDirection * force, ForceMode.VelocityChange);
 
         //Throwing sound

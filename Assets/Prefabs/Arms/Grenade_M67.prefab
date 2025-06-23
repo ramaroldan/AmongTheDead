@@ -130,10 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionEffectPrefab: {fileID: 3352391191284423565, guid: 9571e0e1b1e65834cbba759493c171d3,
     type: 3}
-  explosionParticleOffset: {x: 0, y: 0.5, z: 0}
+  explosionParticleOffset: {x: 0, y: 0, z: 0}
   explosionDelay: 3
   explosionForce: 10
-  explosionRadius: 2
+  explosionRadius: 1
 --- !u!54 &-8162221756952781265
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,9 +142,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4112006768714610851}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_Drag: 0.05
+  m_AngularDrag: 500
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
