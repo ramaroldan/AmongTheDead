@@ -139,8 +139,23 @@ public class MainCharacterMove : MonoBehaviour
         //walkingBackwards = vert < 0f;
         //anim.SetBool("IsWalking", walking);
         //anim.SetBool("IsWalkingBackwards", walkingBackwards);
+
+        // Detectar si el personaje está mirando hacia abajo (sur global)
+        Vector3 forward = playerRotation * Vector3.forward;
+        bool mirandoAbajo = forward.z < -0.5f;
+
+        // Si está mirando hacia abajo, invertir el eje horizontal
+        float horizMod = horiz;
+
         anim.SetFloat("VelZ", v);
+
+        if (mirandoAbajo)
+        {
+            h*= -1;
+        }
         anim.SetFloat("VelX", h);
+        
+        
         anim.SetFloat("RunSpeed", speed);
         //Debug.Log(speed);
     }

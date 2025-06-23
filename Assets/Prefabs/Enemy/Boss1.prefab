@@ -219,7 +219,7 @@ PrefabInstance:
     - target: {fileID: 6004395787245316235, guid: 1f78fac11fce5d84fb60ca9d2981c873,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6004395787245316235, guid: 1f78fac11fce5d84fb60ca9d2981c873,
         type: 3}
@@ -1875,13 +1875,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d595acf6509fb874baf08974ddc6c707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 250
   currentHealth: 0
   scoreValue: 50
   isDead: 0
   slider: {fileID: 2824525590834554941}
   fillImage: {fileID: 439640147853907026}
-  deathClip: {fileID: 8300000, guid: 9df77b70cadc8384ca073a95aebc666f, type: 3}
+  deathClip: {fileID: 8300000, guid: 4bd4ba34214515b458e2356ee565cabf, type: 3}
 --- !u!82 &8714765591432067973
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1891,10 +1891,11 @@ AudioSource:
   m_GameObject: {fileID: 7037120670584779184}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2176087835440264852, guid: 8ebb1e5e4b587254da05519c7e024f79,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: d4d86ee2c17a54a47aa26dda31c15ca5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2005,6 +2006,8 @@ MonoBehaviour:
   timeBetweenAttacks: 3
   attackDamage: 50
   _handCollider: {fileID: 2374038926639786758}
+  aClip: {fileID: 8300000, guid: d4d86ee2c17a54a47aa26dda31c15ca5, type: 3}
+  nextClip: {fileID: 8300000, guid: 2948fbaa8683f824cbfe47ae8ee42ecb, type: 3}
 --- !u!4 &7702016674093067018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6b070634da492a48a576974248d64b9,
