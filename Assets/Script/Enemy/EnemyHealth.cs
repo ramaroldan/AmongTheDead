@@ -69,7 +69,17 @@ public class EnemyHealth : MonoBehaviour
 
         isDead = true;
         anim.SetTrigger("Death");
-        _enemyMovement.StopMoving(); // agregado para que el agent se detenga al morir
+        if(_enemyMovement != null)
+        {
+            _enemyMovement.StopMoving(); // agregado para que el agent se detenga al morir
+        }
+        else
+        {
+            BossMovement bossMovement = GetComponent<BossMovement>();
+            bossMovement.StopMoving();
+            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false; //desactivamos la navegacion>
+
+        }
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false; //desactivamos la navegacion>
         Destroy(gameObject, 2f);
     }
