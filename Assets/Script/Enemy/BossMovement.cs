@@ -20,7 +20,7 @@ public class BossMovement : MonoBehaviour
 
     void Update()
     {
-        if (player != null)
+        if (player != null && enemyHealth.isDead == false)
         {
             agent.SetDestination(player.transform.position);
         }
