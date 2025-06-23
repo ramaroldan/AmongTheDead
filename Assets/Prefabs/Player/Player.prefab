@@ -656,6 +656,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 968069671151603555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4378216081965398614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022726608013482247}
+  m_Layer: 6
+  m_Name: GrenadePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022726608013482247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378216081965398614}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6, y: 3.1, z: 4.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5938637364419011751}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5080218291205946897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,8 +1097,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4112006768714610851, guid: cabc5f3d7821cee42a648802baca6bbe,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112006768714610851, guid: cabc5f3d7821cee42a648802baca6bbe,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112006768714610851, guid: cabc5f3d7821cee42a648802baca6bbe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1077,6 +1118,12 @@ PrefabInstance:
 --- !u!4 &1871457830910077682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1102134539685890736, guid: cabc5f3d7821cee42a648802baca6bbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1635740687300173890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3432755719677565153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4112006768714610851, guid: cabc5f3d7821cee42a648802baca6bbe,
     type: 3}
   m_PrefabInstance: {fileID: 1635740687300173890}
   m_PrefabAsset: {fileID: 0}
@@ -1962,6 +2009,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4425481910502686113}
+    - targetCorrespondingSourceObject: {fileID: 3705748082143762880, guid: f768d0c99b737344abbbcc043443bfe0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1022726608013482247}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f768d0c99b737344abbbcc043443bfe0,
         type: 3}
@@ -2535,11 +2586,18 @@ MonoBehaviour:
   - {fileID: 916259686124940422}
   - {fileID: 3782922400942345659}
   - {fileID: 5222836373658150146}
+  - {fileID: 3432755719677565153}
   currentWeaponPos: {fileID: 0}
   weaponInBag: {fileID: 8623675690781735376}
   knifePos: {fileID: 4425481910502686113}
   pistolPos: {fileID: 6578768946451192461}
   riflePos: {fileID: 8256783436138269796}
+  grenadePos: {fileID: 1022726608013482247}
+  throwPosition: {fileID: 0}
+  throwDirection: {x: 0, y: 1, z: 0}
+  grenadePrefab: {fileID: 0}
+  throwForce: 1
+  maxForce: 2
   rightHandIK: {fileID: 8580638263311211535}
   rightHandTarget: {fileID: 4413002960066996995}
   leftHandIK: {fileID: 2016665020968055118}

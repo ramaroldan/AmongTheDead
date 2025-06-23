@@ -21,6 +21,16 @@ public class CharacterWeaponEquip : MonoBehaviour
     [SerializeField] private Transform knifePos;
     [SerializeField] private Transform pistolPos;
     [SerializeField] private Transform riflePos;
+    [SerializeField] private Transform grenadePos;
+
+    [Header("Grenade settings")]
+    [SerializeField] private Transform throwPosition; // reference to the throw position transform
+    [SerializeField] private Vector3 throwDirection = new Vector3(0, 1, 0); // direction of the throw
+    [SerializeField] private GameObject grenadePrefab;
+
+    [Header("Grenade force")]
+    [SerializeField] private float throwForce = 1.0f; // force applied to throw the grenade
+    [SerializeField] private float maxForce = 2.0f; // maximum force applied to throw the grenade
 
     [Header("Right Hand Target")]
     [SerializeField] private TwoBoneIKConstraint rightHandIK;
@@ -83,6 +93,8 @@ public class CharacterWeaponEquip : MonoBehaviour
                 weaponSelector = 3;
             else if (item.type == Item.ItemType.MedKit)
                 weaponSelector = 4;
+            else if (item.type == Item.ItemType.Grenade)
+                weaponSelector = 5;
         }
             
 
@@ -96,6 +108,7 @@ public class CharacterWeaponEquip : MonoBehaviour
                     anim.SetBool("IsPistolEquip", false);
                     anim.SetBool("IsRifleEquip", false);
                     anim.SetBool("IsKnifeEquip", false);
+                    anim.SetBool("IsGrenadeEquip", false);
                     UnEquip();
 
 
@@ -104,6 +117,7 @@ public class CharacterWeaponEquip : MonoBehaviour
                     anim.SetBool("IsPistolEquip", false);
                     anim.SetBool("IsRifleEquip", false);
                     anim.SetBool("IsKnifeEquip", true);
+                    anim.SetBool("IsGrenadeEquip", false);
                     UnEquip();
 
                     weaponList[0].transform.parent = knifePos.transform;
@@ -116,6 +130,7 @@ public class CharacterWeaponEquip : MonoBehaviour
                     anim.SetBool("IsPistolEquip", true);
                     anim.SetBool("IsRifleEquip", false);
                     anim.SetBool("IsKnifeEquip", false);
+                    anim.SetBool("IsGrenadeEquip", false);
                     UnEquip();
 
                     weaponList[1].transform.parent = pistolPos.transform;
@@ -128,6 +143,7 @@ public class CharacterWeaponEquip : MonoBehaviour
                     anim.SetBool("IsPistolEquip", false);
                     anim.SetBool("IsRifleEquip", true);
                     anim.SetBool("IsKnifeEquip", false);
+                    anim.SetBool("IsGrenadeEquip", false);
                     UnEquip();
 
                     weaponList[2].transform.parent = riflePos.transform;
@@ -135,6 +151,19 @@ public class CharacterWeaponEquip : MonoBehaviour
                     weaponList[2].transform.rotation = riflePos.rotation;
                     weaponList[2].SetActive(true);
                     _audioSource.PlayOneShot(_rifleLeverAction, 0.5f);
+                    break;
+                case 5:
+                    anim.SetBool("IsPistolEquip", false);
+                    anim.SetBool("IsRifleEquip", false);
+                    anim.SetBool("IsKnifeEquip", false);
+                    anim.SetBool("IsGrenadeEquip", true);
+                    UnEquip();
+
+                    weaponList[3].transform.parent = grenadePos.transform;
+                    weaponList[3].transform.position = grenadePos.position;
+                    weaponList[3].transform.rotation = grenadePos.rotation;
+                    weaponList[3].SetActive(true);
+                    // play audio clip for grenade?
                     break;
             }
 
@@ -180,6 +209,11 @@ public class CharacterWeaponEquip : MonoBehaviour
                     playerHealth.ReceiveHealth(item.countHealth);
 
                 }
+                break;
+            case 5:
+                leftHandIK.weight = 0f;
+                rightHandIK.weight = 0f;
+
                 break;
         }
         

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2076,6 +2076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startItems:
   - {fileID: 11400000, guid: a455bb36ed415694d987e77e4152c666, type: 2}
+  - {fileID: 11400000, guid: 49a3a0da15f43234d8f2ead7ec20aefa, type: 2}
   maxStackedItems: 10
   inventorySlots:
   - {fileID: 2061176312}
