@@ -25,12 +25,12 @@ public class CharacterWeaponEquip : MonoBehaviour
 
     [Header("Grenade settings")]
     [SerializeField] private Transform throwPosition; // reference to the throw position transform
-    [SerializeField] private Vector3 throwDirection = new Vector3(0, 1, 0); // direction of the throw
+    [SerializeField] private Vector3 throwDirection = new Vector3(0, 2, 0); // direction of the throw
     [SerializeField] private GameObject grenadePrefab;
 
     [Header("Grenade force")]
-    [SerializeField] private float throwForce = 1.0f; // force applied to throw the grenade
-    [SerializeField] private float maxForce = 2.0f; // maximum force applied to throw the grenade
+    [SerializeField] private float throwForce = 5.0f; // force applied to throw the grenade
+    [SerializeField] private float maxForce = 30.0f; // maximum force applied to throw the grenade
 
     [Header("Right Hand Target")]
     [SerializeField] private TwoBoneIKConstraint rightHandIK;
@@ -228,7 +228,7 @@ public class CharacterWeaponEquip : MonoBehaviour
                 {
                     anim.SetTrigger("ThrowGrenade");
                     item = InventoryManager.instance.GetSelectedItem(true);
-                    ReleaseThrow();
+                    //ReleaseThrow();
                 }
                 break;
         }
@@ -292,7 +292,7 @@ public class CharacterWeaponEquip : MonoBehaviour
 
     void CalculateForce()
     {
-        ThrowGrenade(Mathf.Min(chargeTime * throwForce, maxForce));
+        ThrowGrenade(Mathf.Min((1 + chargeTime) * throwForce, maxForce));
     }
 
     void ThrowGrenade(float force)
@@ -302,7 +302,7 @@ public class CharacterWeaponEquip : MonoBehaviour
 
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
 
-        Vector3 finalThrowDirection = (gameObject.transform.forward + throwDirection).normalized;
+        Vector3 finalThrowDirection = (throwPosition.transform.forward + throwDirection);
         rb.AddForce(finalThrowDirection * force, ForceMode.VelocityChange);
 
         //Throwing sound
