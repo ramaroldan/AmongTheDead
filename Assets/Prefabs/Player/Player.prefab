@@ -776,6 +776,37 @@ MonoBehaviour:
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
+--- !u!1 &5372915347639339733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5802995599600012605}
+  m_Layer: 6
+  m_Name: GrenadeThrowPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5802995599600012605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372915347639339733}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.242, y: 1.124, z: 0.767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3856822622749048145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6538633512466119929
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +838,7 @@ Transform:
   m_Children:
   - {fileID: 6578768946451192461}
   - {fileID: 8256783436138269796}
+  - {fileID: 5802995599600012605}
   m_Father: {fileID: 7389712602595613324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6550999974455991983
@@ -1884,6 +1916,16 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 6e2fbb92d28bc01489956efd968ff91f, type: 2}
     - target: {fileID: 5866666021909216657, guid: f768d0c99b737344abbbcc043443bfe0,
         type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'CC_Base_R_Upperarm'\n\tTransform 'CC_Base_R_Forearm'\n\tTransform
+        'CC_Base_L_Forearm'\n\tTransform 'CC_Base_L_Hand'\n\tTransform 'CC_Base_L_Upperarm'\n\tTransform
+        'CC_Base_R_Hand'\n\tTransform 'CC_Base_R_Upperarm'\n\tTransform 'CC_Base_R_Forearm'\n\tTransform
+        'CC_Base_L_Forearm'\n\tTransform 'CC_Base_L_Hand'\n\tand more ..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: f768d0c99b737344abbbcc043443bfe0,
+        type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
@@ -2593,9 +2635,10 @@ MonoBehaviour:
   pistolPos: {fileID: 6578768946451192461}
   riflePos: {fileID: 8256783436138269796}
   grenadePos: {fileID: 1022726608013482247}
-  throwPosition: {fileID: 0}
+  throwPosition: {fileID: 5802995599600012605}
   throwDirection: {x: 0, y: 1, z: 0}
-  grenadePrefab: {fileID: 0}
+  grenadePrefab: {fileID: 4112006768714610851, guid: d5d823a2fd1fe25409cf642642dcd06e,
+    type: 3}
   throwForce: 1
   maxForce: 2
   rightHandIK: {fileID: 8580638263311211535}

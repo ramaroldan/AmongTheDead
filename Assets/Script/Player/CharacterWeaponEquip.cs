@@ -61,6 +61,9 @@ public class CharacterWeaponEquip : MonoBehaviour
     [Header("UI section")]
     [SerializeField] HoverOver _hoverOverToolbar;
 
+    private bool isCharging = false; // flag to check if player is charging the throw
+    private float chargeTime = 0f; // time player has been gharging the throw
+
     int weaponSelector = 0;
     int weapontTemp = 0;
     // Start is called before the first frame update
@@ -213,15 +216,20 @@ public class CharacterWeaponEquip : MonoBehaviour
             case 5:
                 leftHandIK.weight = 0f;
                 rightHandIK.weight = 0f;
+                if (Input.GetMouseButtonDown(0) && item.actionType == Item.ActionType.Throw && (!_hoverOverToolbar.IsOverElement()))
+                {
+                    StartThrowing();
+                }
+                if (isCharging)
+                {
+                    ChargeThrow();
+                }
                 if (Input.GetMouseButtonUp(0) && item.actionType == Item.ActionType.Throw && (!_hoverOverToolbar.IsOverElement()))
                 {
-                    // play audio clip
-                    item = InventoryManager.instance.GetSelectedItem(true);
-                    // other actions
                     anim.SetTrigger("ThrowGrenade");
-
+                    item = InventoryManager.instance.GetSelectedItem(true);
+                    ReleaseThrow();
                 }
-
                 break;
         }
         
@@ -254,4 +262,51 @@ public class CharacterWeaponEquip : MonoBehaviour
         weaponSelector = 0;
         UnEquip();
     }
+
+    void StartThrowing()
+    {
+        // pull pin sound
+
+        isCharging = true;
+        chargeTime = 0f;
+
+        //Trajectory line
+    }
+
+    void ChargeThrow()
+    {
+        chargeTime += Time.deltaTime;
+
+        //trajectory line velocity
+    }
+
+    void ReleaseThrow()
+    {
+        //play animation
+
+        isCharging = false;
+        CalculateForce();
+
+        //hide line
+    }
+
+    void CalculateForce()
+    {
+        ThrowGrenade(Mathf.Min(chargeTime * throwForce, maxForce));
+    }
+
+    void ThrowGrenade(float force)
+    {
+        Vector3 spawnPosition = throwPosition.position;
+        GameObject grenade = Instantiate(grenadePrefab, spawnPosition, gameObject.transform.rotation);
+
+        Rigidbody rb = grenade.GetComponent<Rigidbody>();
+
+        Vector3 finalThrowDirection = (gameObject.transform.forward + throwDirection).normalized;
+        rb.AddForce(finalThrowDirection * force, ForceMode.VelocityChange);
+
+        //Throwing sound
+    }
+
+    // show Trajectory
 }
