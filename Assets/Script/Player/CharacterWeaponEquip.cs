@@ -288,7 +288,7 @@ public class CharacterWeaponEquip : MonoBehaviour
 
     private void ShowTrajectory(Vector3 origin, Vector3 speed)
     {
-        Vector3[] points = new Vector3[50];
+        Vector3[] points = new Vector3[100];
         trajectoryLine.positionCount = points.Length;
         for(int i=0; i < points.Length; i++)
         {

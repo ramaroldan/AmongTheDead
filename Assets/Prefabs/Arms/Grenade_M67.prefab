@@ -131,9 +131,10 @@ MonoBehaviour:
   explosionEffectPrefab: {fileID: 3352391191284423565, guid: 9571e0e1b1e65834cbba759493c171d3,
     type: 3}
   explosionParticleOffset: {x: 0, y: 0, z: 0}
-  explosionDelay: 3
-  explosionForce: 10
-  explosionRadius: 1
+  explosionDelay: 2.5
+  explosionForce: 5
+  explosionRadius: 0.5
+  damage: 40
 --- !u!54 &-8162221756952781265
 Rigidbody:
   m_ObjectHideFlags: 0
